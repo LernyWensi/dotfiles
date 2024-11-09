@@ -1,0 +1,119 @@
+# ====================== CONFIG ======================
+
+theme = "ayu_dark"
+
+[editor]
+true-color = true
+undercurl = true
+
+auto-info = false
+
+scrolloff = 15
+
+idle-timeout = 0
+
+color-modes = true
+popup-border = "none"
+bufferline = "always"
+cursorline = true
+line-number = "relative"
+gutters = ["diff", "line-numbers", "spacer", "diagnostics", "spacer"]
+
+completion-timeout = 0
+completion-trigger-len = 1
+
+auto-pairs = false
+
+[editor.statusline]
+mode.normal = "🩷 NORMAL"
+mode.insert = "🩵 INSERT"
+mode.select = "💚 SELECT"
+
+left = ["mode", "spacer", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "primary-selection-length"]
+
+[editor.whitespace.characters]
+nbsp = "‗"
+newline = "↩"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[editor.file-picker]
+hidden = false
+
+[editor.soft-wrap]
+max-indent-retain = 0
+
+[editor.smart-tab]
+enable = false
+
+[editor.lsp]
+auto-signature-help = false
+display-messages = true
+
+# =============== KEYBINDINGS (NORMAL) ===============
+
+[keys.normal]
+A-k = "signature_help"
+
+ret = "goto_word"
+
+S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+tab = "jump_forward"
+S-tab = "jump_backward"
+
+C-pagedown = "goto_next_buffer"
+C-pageup = "goto_previous_buffer"
+
+x = "select_line_below"
+X = "select_line_above"
+
+C-d = ["page_cursor_half_down", "align_view_center"]
+C-u = ["page_cursor_half_up", "align_view_center"]
+
+[keys.normal.backspace]
+backspace = ":buffer-close"
+o = ":buffer-close-others"
+
+# =============== KEYBINDINGS (SELECT) ===============
+
+[keys.select]
+x = "select_line_below"
+X = "select_line_above"
+
+C-d = ["page_cursor_half_down", "align_view_center"]
+C-u = ["page_cursor_half_up", "align_view_center"]
+
+# =============== KEYBINDINGS (INSERT) ===============
+
+[keys.insert]
+A-k = "signature_help"
+
+# Facilitate modal editing
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+
+# =============== KEYBINDINGS (CONFIG) ===============
+
+[keys.normal.h]
+c = ":open ~/.config/helix/config.toml"
+l = ":open ~/.config/helix/languages.toml"
+r = ":config-reload"
+
+h = ":toggle-option lsp.display-inlay-hints"
+w = ":toggle-option whitespace.render all none"
+g = ":toggle-option indent-guides.render"
+
+[keys.normal.l]
+r = ":lsp-restart"
+c = ":lsp-workspace-command"
