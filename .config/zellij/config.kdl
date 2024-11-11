@@ -113,20 +113,14 @@ keybinds clear-defaults=true {
     shared_among "normal" "locked" {
         bind "Alt {" { PreviousSwapLayout; }
         bind "Alt }" { NextSwapLayout; }
-        bind "Alt Shift left" { MoveFocus "left"; }
-        bind "Alt Shift down" { MoveFocus "down"; }
-        bind "Alt Shift up" { MoveFocus "up"; }
-        bind "Alt Shift right" { MoveFocus "right"; }
-        bind "Alt +" { Resize "Increase"; }
-        bind "Alt _" { Resize "Decrease"; }
-        bind "Alt Shift n" { NewPane; }
-        bind "Alt Shift x" { CloseFocus; SwitchToMode "locked"; }
-        bind "Alt Shift f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-        bind "Alt Shift w" { ToggleFloatingPanes; }
-        bind "Alt Shift a" { ToggleTab; }
-        bind "Alt Shift PageUp" { GoToPreviousTab; }
-        bind "Alt Shift PageDown" { GoToNextTab; }
-        bind "Alt Shift p" {
+        bind "Alt left" { MoveFocus "left"; }
+        bind "Alt down" { MoveFocus "down"; }
+        bind "Alt up" { MoveFocus "up"; }
+        bind "Alt right" { MoveFocus "right"; }
+        bind "Alt w" { ToggleFloatingPanes; }
+        bind "Alt PageUp" { GoToPreviousTab; }
+        bind "Alt PageDown" { GoToNextTab; }
+        bind "Alt p" {
             LaunchPlugin "filepicker" {
                 floating true
                 close_on_selection true
