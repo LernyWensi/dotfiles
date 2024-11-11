@@ -215,15 +215,15 @@ session_serialization true
 serialize_pane_viewport false
 scroll_buffer_size 10000
 
-simplified_ui true
-pane_frames true
+simplified_ui false
+pane_frames false
 ui { 
     pane_frames { 
         rounded_corners false
     }
 }
 
-theme "ayu_dark"
+theme "rose_pine"
 
 themes {
     curzon {
@@ -239,4 +239,17 @@ themes {
         black "#000000"
         white "#ffffff"
     }
+    rose_pine {
+         bg "#403d52"
+         fg "#e0def4"
+         red "#eb6f92"
+         green "#9ccfd8"
+         yellow "#f6c177"
+         blue "#31748f"
+         magenta "#c4a7e7"
+         orange "#6e6a86"
+         cyan "#ebbcba"
+         black "#26233a"
+         white "#e0def4"
+     }
 }
