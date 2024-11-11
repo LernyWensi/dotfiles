@@ -108,11 +108,6 @@ hlint = { config = { flags = [
     "--with-group=teaching",
 ] } }
 
-# biome
-[language-server.biome]
-command = "biome"
-args = ["lsp-proxy"]
-
 # emmet-lsp
 [language-server.emmet-lsp]
 command = "emmet-language-server"
