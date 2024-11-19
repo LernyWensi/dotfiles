@@ -86,6 +86,14 @@ formatter = { command = "npx", args = ["prettier", "--parser", "markdown"] }
 indent = { tab-width = 4, unit = "    " }
 soft-wrap = { enable = true }
 
+# typst
+[[language]]
+name = "typst"
+language-servers = ["tinymist"]
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+soft-wrap = { enable = true }
+
 # ================= SERVERS =================
 
 # haskell-language-server
@@ -186,8 +194,17 @@ command = "mdpls"
 
 [language-server.mdpls.config]
 markdown.preview.auto = false
-markdown.preview.browser = "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 markdown.preview.serveStatic = true
+markdown.preview.browser = "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+
+# tinymist
+[language-server.tinymist]
+command = "tinymist"
+
+[language-server.tinymist.config]
+exportPdf = "onType"
+formatterMode = "typstyle"
+formatterPrintWidth = "90"
 
 # vscode-html-language-server
 [vscode-html-language-server.config]
