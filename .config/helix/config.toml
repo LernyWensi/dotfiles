@@ -63,11 +63,8 @@ ret = "goto_word"
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
-tab = "jump_forward"
-S-tab = "jump_backward"
-
-C-pagedown = "goto_next_buffer"
-C-pageup = "goto_previous_buffer"
+tab = "goto_next_buffer"
+S-tab = "goto_previous_buffer"
 
 x = "select_line_below"
 X = "select_line_above"
