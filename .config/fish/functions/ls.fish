@@ -8,7 +8,6 @@ function ls --wraps eza
         --no-user \
         --git \
         --git-repos \
-        --git-ignore \
         --time-style long-iso \
         --icons always \
         $argv
