@@ -117,24 +117,24 @@ keybinds clear-defaults=true {
     }
 }
 
-on_force_close "detach"
+on_force_close "quit"
 
-mouse_mode true
-copy_on_select true
+mouse_mode false
+copy_on_select false
 
 auto_layout true
 default_layout "compact"
 default_mode "locked"
 
 session_serialization true
-serialize_pane_viewport false
+serialize_pane_viewport true
 scroll_buffer_size 10000
 
 simplified_ui false
-pane_frames false
+pane_frames true
 ui { 
     pane_frames { 
-        rounded_corners false
+        rounded_corners true
     }
 }
 
@@ -155,7 +155,7 @@ themes {
         white "#ffffff"
     }
     rose_pine {
-         bg "#403d52"
+         bg "#0c0b12"
          fg "#e0def4"
          red "#eb6f92"
          green "#9ccfd8"
@@ -166,5 +166,31 @@ themes {
          cyan "#ebbcba"
          black "#26233a"
          white "#e0def4"
-     }
+    }
+    rose_pine_dawn {
+        bg "#faf4ed"
+        fg "#575279"
+        red "#b4637a"
+        green "#56949f"
+        yellow "#ea9d34"
+        blue "#286983"
+        magenta "#907aa9"
+        orange "#9893a5"
+        cyan "#d7827e"
+        black "#f2e9e1"
+        white "#575279"
+    }
+    flexoki_dark {
+        bg "#1c1b1a"
+        fg "#cecdc3"
+        red "#d14d41"
+        green "#879a39"
+        yellow "#d0a215"
+        blue "#4385be"
+        magenta "#ce5d97"
+        orange "#cecdc3"
+        cyan "#3aa99f"
+        white "#b7b5ac"
+        black "#1c1b1a"
+    }
 }
