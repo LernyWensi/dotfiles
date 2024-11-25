@@ -1,3 +1,3 @@
-function dotfiles --wraps git
+function dots --wraps git
     git --git-dir $HOME/.dotfiles/ --work-tree $HOME $argv
 end
