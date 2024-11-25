@@ -79,6 +79,8 @@ o = ":buffer-close-others"
 # =============== KEYBINDINGS (SELECT) ===============
 
 [keys.select]
+ret = "goto_word"
+
 x = "select_line_below"
 X = "select_line_above"
 
