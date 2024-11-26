@@ -131,66 +131,27 @@ serialize_pane_viewport true
 scroll_buffer_size 10000
 
 simplified_ui false
-pane_frames true
+pane_frames false
 ui { 
     pane_frames { 
         rounded_corners true
     }
 }
 
-theme "rose_pine"
+theme "meliora"
 
 themes {
-    curzon {
-        fg "#bfdbfe"
-        bg "#111111"
-        red "#f43f5e"
-        green "#10b981"
-        yellow "#ffcd1c"
-        blue "#6366f1"
-        magenta "#a4a0e8"
-        orange "#4f46e5"
-        cyan "#6ee7b7"
-        black "#000000"
-        white "#ffffff"
-    }
-    rose_pine {
-         bg "#0c0b12"
-         fg "#e0def4"
-         red "#eb6f92"
-         green "#9ccfd8"
-         yellow "#f6c177"
-         blue "#31748f"
-         magenta "#c4a7e7"
-         orange "#6e6a86"
-         cyan "#ebbcba"
-         black "#26233a"
-         white "#e0def4"
-    }
-    rose_pine_dawn {
-        bg "#faf4ed"
-        fg "#575279"
-        red "#b4637a"
-        green "#56949f"
-        yellow "#ea9d34"
-        blue "#286983"
-        magenta "#907aa9"
-        orange "#9893a5"
-        cyan "#d7827e"
-        black "#f2e9e1"
-        white "#575279"
-    }
-    flexoki_dark {
-        bg "#1c1b1a"
-        fg "#cecdc3"
-        red "#d14d41"
-        green "#879a39"
-        yellow "#d0a215"
-        blue "#4385be"
-        magenta "#ce5d97"
-        orange "#cecdc3"
-        cyan "#3aa99f"
-        white "#b7b5ac"
-        black "#1c1b1a"
+    meliora {
+        bg "#1c1917"
+        fg "#dad7d5"
+        red "#d29595"
+        green "#c9b58e"
+        yellow "#c9b58e"
+        blue "#a49db9"
+        magenta "#b494af"
+        orange "#c2b4a8"
+        cyan "#cbab8a"
+        white "#dad7d5"
+        black "#302D2B"
     }
 }
