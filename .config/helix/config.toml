@@ -1,6 +1,6 @@
 # ====================== CONFIG ======================
 
-theme = "rose_pine"
+theme = "boo_berry"
 
 [editor]
 true-color = true
@@ -10,17 +10,16 @@ auto-info = false
 
 scrolloff = 15
 
-idle-timeout = 0
+idle-timeout = 1000
 
 color-modes = true
-popup-border = "none"
 bufferline = "always"
-cursorline = true
 line-number = "relative"
 gutters = ["diff", "line-numbers", "spacer", "diagnostics", "spacer"]
 
 completion-timeout = 0
 completion-trigger-len = 1
+completion-replace = true
 
 auto-pairs = false
 
