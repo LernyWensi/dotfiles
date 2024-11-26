@@ -1,8 +1,8 @@
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl Space" { SwitchToMode "normal"; }
+        bind "ctrl space" { SwitchToMode "normal"; }
     }
-    normal {
+    shared_among "normal" "search" "scroll" {
         // general
         bind "esc" { SwitchToMode "locked"; }
 
@@ -12,7 +12,6 @@ keybinds clear-defaults=true {
         bind "l" { Clear; }
 
         // pane
-        bind "n" { NewPane; SwitchToMode "locked"; }
         bind "v" { NewPane "right"; SwitchToMode "locked"; }
         bind "s" { NewPane "down"; SwitchToMode "locked"; }
         bind "backspace" { CloseFocus; SwitchToMode "locked"; }
@@ -21,13 +20,13 @@ keybinds clear-defaults=true {
         bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
 
-        bind "left" { MoveFocus "left"; SwitchToMode "locked";}
-        bind "down" { MoveFocus "down"; SwitchToMode "locked";}
-        bind "up" { MoveFocus "up"; SwitchToMode "locked";}
-        bind "right" { MoveFocus "right"; SwitchToMode "locked";}
+        bind "left" { MoveFocus "left"; SwitchToMode "locked"; }
+        bind "down" { MoveFocus "down"; SwitchToMode "locked"; }
+        bind "up" { MoveFocus "up"; SwitchToMode "locked"; }
+        bind "right" { MoveFocus "right"; SwitchToMode "locked"; }
 
         // tab
-        bind "t" { NewTab; SwitchToMode "locked";}
+        bind "t" { NewTab; SwitchToMode "locked"; }
         bind "b" { BreakPane; SwitchToMode "locked"; }
         bind "shift backspace" { CloseTab; SwitchToMode "locked"; }
 
@@ -51,16 +50,16 @@ keybinds clear-defaults=true {
         bind "9" { GoToTab 9; SwitchToMode "locked"; }
 
         // resize
-        bind "=" { Resize "Increase"; }
-        bind "-" { Resize "Decrease"; }
-        bind "alt left" { Resize "Increase left"; }
-        bind "alt down" { Resize "Increase down"; }
-        bind "alt up" { Resize "Increase up"; }
-        bind "alt right" { Resize "Increase right"; }
-        bind "alt shift left" { Resize "Decrease left"; }
-        bind "alt shift down" { Resize "Decrease down"; }
-        bind "alt shift up" { Resize "Decrease up"; }
-        bind "alt shift right" { Resize "Decrease right"; }
+        bind "=" { Resize "increase"; }
+        bind "-" { Resize "decrease"; }
+        bind "alt left" { Resize "increase left"; }
+        bind "alt down" { Resize "increase down"; }
+        bind "alt up" { Resize "increase up"; }
+        bind "alt right" { Resize "increase right"; }
+        bind "alt shift left" { Resize "decrease left"; }
+        bind "alt shift down" { Resize "decrease down"; }
+        bind "alt shift up" { Resize "decrease up"; }
+        bind "alt shift right" { Resize "decrease right"; }
 
         // move
         bind "ctrl shift right" { MovePane; }
@@ -95,16 +94,16 @@ keybinds clear-defaults=true {
     }
     search {
         bind "n" { Search "down"; }
-        bind "N" { Search "up"; }
-        bind "c" { SearchToggleOption "CaseSensitivity"; }
-        bind "w" { SearchToggleOption "WholeWord"; }
+        bind "n" { Search "up"; }
+        bind "c" { SearchToggleOption "casesensitivity"; }
+        bind "w" { SearchToggleOption "wholeword"; }
     }
     shared_among "search" "scroll" {
-        bind "esc" { ScrollToBottom; SwitchToMode "locked"; }
-        bind "down" { ScrollDown; }
-        bind "up" { ScrollUp; }
-        bind "PageDown" { HalfPageScrollDown; }
-        bind "PageUp" { HalfPageScrollUp; }
+        bind "esc" { SwitchToMode "locked"; }
+        bind "alt pagedown" { ScrollDown; }
+        bind "alt pageup" { ScrollUp; }
+        bind "pagedown" { HalfPageScrollDown; }
+        bind "pageup" { HalfPageScrollUp; }
     }
     shared_among "renamepane" "renametab" {
         bind "enter" { SwitchToMode "locked"; }
