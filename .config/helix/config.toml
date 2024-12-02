@@ -1,6 +1,6 @@
 # ====================== CONFIG ======================
 
-theme = "meliora"
+theme = "meliora.m"
 
 [editor]
 true-color = true
@@ -10,7 +10,7 @@ auto-info = false
 
 scrolloff = 15
 
-idle-timeout = 1000
+idle-timeout = 0
 
 color-modes = true
 bufferline = "always"
@@ -19,25 +19,25 @@ gutters = ["diff", "line-numbers", "spacer", "diagnostics", "spacer"]
 
 completion-timeout = 0
 completion-trigger-len = 1
-completion-replace = true
 
-auto-pairs = false
+[editor.cursor-shape]
+insert = "bar"
 
 [editor.statusline]
-mode.normal = "🩷 NORMAL"
-mode.insert = "🩵 INSERT"
-mode.select = "💚 SELECT"
+mode.normal = "💜 NORMAL💜"
+mode.insert = "💛 INSERT💛"
+mode.select = "🩷 SELECT🩷"
 
 left = ["mode", "spacer", "spinner"]
 center = ["file-name"]
-right = ["diagnostics", "primary-selection-length"]
+right = ["workspace-diagnostics", "primary-selection-length"]
+
+[editor.whitespace.render]
+tab = "all"
 
 [editor.whitespace.characters]
 nbsp = "‗"
 newline = "↩"
-
-[editor.inline-diagnostics]
-cursor-line = "hint"
 
 [editor.file-picker]
 hidden = false
@@ -55,12 +55,13 @@ display-messages = true
 # =============== KEYBINDINGS (NORMAL) ===============
 
 [keys.normal]
-A-k = "signature_help"
+C-k = "signature_help"
 
 ret = "goto_word"
+A-ret = ["save_selection", "goto_word"]
 
-S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
 tab = "goto_next_buffer"
 S-tab = "goto_previous_buffer"
@@ -74,6 +75,10 @@ C-u = ["page_cursor_half_up", "align_view_center"]
 [keys.normal.backspace]
 backspace = ":buffer-close"
 o = ":buffer-close-others"
+
+[keys.normal.space]
+w = ":write"
+S-w = ":write-all"
 
 # =============== KEYBINDINGS (SELECT) ===============
 
@@ -89,7 +94,7 @@ C-u = ["page_cursor_half_up", "align_view_center"]
 # =============== KEYBINDINGS (INSERT) ===============
 
 [keys.insert]
-A-k = "signature_help"
+C-k = "signature_help"
 
 # Facilitate modal editing
 up = "no_op"
@@ -111,6 +116,7 @@ r = ":config-reload"
 h = ":toggle-option lsp.display-inlay-hints"
 w = ":toggle-option whitespace.render all none"
 g = ":toggle-option indent-guides.render"
+d = ":toggle-option inline-diagnostics.cursor-line hint disable"
 
 [keys.normal.l]
 r = ":lsp-restart"
