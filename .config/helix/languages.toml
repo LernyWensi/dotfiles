@@ -102,9 +102,9 @@ formattingProvider = "fourmolu"
 checkParents = "AlwaysCheck"
 
 [language-server.haskell-language-server.config.plugin]
+stan = { globalOn = true }
+rename = { config = { crossModule = true } }
 semanticTokens = { globalOn = true }
-stan = { globalOn = true, config = { diff = true } }
-rename = { config = { diff = true } }
 hlint = { config = { flags = [
     "--with-group=future",
     "--with-group=extra",
