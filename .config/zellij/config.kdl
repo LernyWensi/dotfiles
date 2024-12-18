@@ -2,84 +2,74 @@ keybinds clear-defaults=true {
     locked {
         bind "ctrl space" { SwitchToMode "normal"; }
     }
-    shared_among "normal" "search" "scroll" {
-        // general
+    shared_except "locked" {
         bind "esc" { SwitchToMode "locked"; }
+    }
+    shared {
+        bind "alt f" { ToggleFloatingPanes; SwitchToMode "locked"; }
+        bind "alt e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
+        bind "alt z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        
+        bind "alt left" { MoveFocus "left"; }
+        bind "alt down" { MoveFocus "down"; }
+        bind "alt up" { MoveFocus "up"; }
+        bind "alt right" { MoveFocus "right"; }
 
-        bind "[" { PreviousSwapLayout; }
-        bind "]" { NextSwapLayout; }
+        bind "alt a" { ToggleTab; SwitchToMode "locked"; }
 
-        bind "l" { Clear; }
+        bind "alt 1" { GoToTab 1; SwitchToMode "locked"; }
+        bind "alt 2" { GoToTab 2; SwitchToMode "locked"; }
+        bind "alt 3" { GoToTab 3; SwitchToMode "locked"; }
+        bind "alt 4" { GoToTab 4; SwitchToMode "locked"; }
+        bind "alt 5" { GoToTab 5; SwitchToMode "locked"; }
+        bind "alt 6" { GoToTab 6; SwitchToMode "locked"; }
+        bind "alt 7" { GoToTab 7; SwitchToMode "locked"; }
+        bind "alt 8" { GoToTab 8; SwitchToMode "locked"; }
+        bind "alt 9" { GoToTab 9; SwitchToMode "locked"; }
+    }
+    normal {
+        bind "tab" { GoToNextTab; }
+        bind "shift tab" { GoToPreviousTab; }
 
-        // pane
-        bind "v" { NewPane "right"; SwitchToMode "locked"; }
-        bind "s" { NewPane "down"; SwitchToMode "locked"; }
-        bind "backspace" { CloseFocus; SwitchToMode "locked"; }
-
-        bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
-        bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-
-        bind "left" { MoveFocus "left"; SwitchToMode "locked"; }
-        bind "down" { MoveFocus "down"; SwitchToMode "locked"; }
-        bind "up" { MoveFocus "up"; SwitchToMode "locked"; }
-        bind "right" { MoveFocus "right"; SwitchToMode "locked"; }
-
-        // tab
         bind "t" { NewTab; SwitchToMode "locked"; }
-        bind "b" { BreakPane; SwitchToMode "locked"; }
-        bind "shift backspace" { CloseTab; SwitchToMode "locked"; }
+        bind "Q" { CloseTab; SwitchToMode "locked"; }
+
+        bind "p" { NewPane; SwitchToMode "locked"; }
+        bind "s" { NewPane "down"; SwitchToMode "locked"; }
+        bind "v" { NewPane "right"; SwitchToMode "locked"; }
+        bind "q" { CloseFocus; SwitchToMode "locked"; }
 
         bind "shift left" { MoveTab "left"; }
         bind "shift right" { MoveTab "right"; }
 
-        bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
+        bind "left" { MovePane "left"; }
+        bind "down" { MovePane "down"; }
+        bind "up" { MovePane "up"; }
+        bind "right" { MovePane "right"; }
 
-        bind "a" { ToggleTab; SwitchToMode "locked";}
-        bind "tab" { GoToNextTab; }
-        bind "shift tab" { GoToPreviousTab; }
-
-        bind "1" { GoToTab 1; SwitchToMode "locked"; }
-        bind "2" { GoToTab 2; SwitchToMode "locked"; }
-        bind "3" { GoToTab 3; SwitchToMode "locked"; }
-        bind "4" { GoToTab 4; SwitchToMode "locked"; }
-        bind "5" { GoToTab 5; SwitchToMode "locked"; }
-        bind "6" { GoToTab 6; SwitchToMode "locked"; }
-        bind "7" { GoToTab 7; SwitchToMode "locked"; }
-        bind "8" { GoToTab 8; SwitchToMode "locked"; }
-        bind "9" { GoToTab 9; SwitchToMode "locked"; }
-
-        // resize
         bind "=" { Resize "increase"; }
         bind "-" { Resize "decrease"; }
-        bind "alt left" { Resize "increase left"; }
-        bind "alt down" { Resize "increase down"; }
-        bind "alt up" { Resize "increase up"; }
-        bind "alt right" { Resize "increase right"; }
-        bind "alt shift left" { Resize "decrease left"; }
-        bind "alt shift down" { Resize "decrease down"; }
-        bind "alt shift up" { Resize "decrease up"; }
-        bind "alt shift right" { Resize "decrease right"; }
 
-        // move
-        bind "ctrl shift right" { MovePane; }
-        bind "ctrl shift left" { MovePaneBackwards; }
+        bind "ctrl left" { Resize "increase left"; }
+        bind "ctrl down" { Resize "increase down"; }
+        bind "ctrl up" { Resize "increase up"; }
+        bind "ctrl right" { Resize "increase right"; }
 
-        bind "ctrl left" { MovePane "left"; }
-        bind "ctrl down" { MovePane "down"; }
-        bind "ctrl up" { MovePane "up"; }
-        bind "ctrl right" { MovePane "right"; }
+        bind "ctrl shift left" { Resize "decrease left"; }
+        bind "ctrl shift down" { Resize "decrease down"; }
+        bind "ctrl shift up" { Resize "decrease up"; }
+        bind "ctrl shift right" { Resize "decrease right"; }
 
-        // edit
+        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+        bind "," { SwitchToMode "scroll"; }
         bind "e" { EditScrollback; SwitchToMode "locked"; }
 
-        // search
-        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+        bind "r" { SwitchToMode "renamepane"; PaneNameInput 0; }
+        bind "R" { SwitchToMode "renametab"; TabNameInput 0; }
 
-        // scroll
-        bind "?" { SwitchToMode "scroll"; }
+        bind "[" { PreviousSwapLayout; }
+        bind "]" { NextSwapLayout; }
 
-        // session
         bind "." {
             LaunchOrFocusPlugin "session-manager" {
                 floating true
@@ -89,19 +79,19 @@ keybinds clear-defaults=true {
         }
     }
     entersearch {
-        bind "esc" { SwitchToMode "locked"; }
         bind "enter" { SwitchToMode "search"; }
     }
     search {
         bind "n" { Search "down"; }
-        bind "n" { Search "up"; }
+        bind "N" { Search "up"; }
+
         bind "c" { SearchToggleOption "casesensitivity"; }
         bind "w" { SearchToggleOption "wholeword"; }
     }
     shared_among "search" "scroll" {
-        bind "esc" { SwitchToMode "locked"; }
-        bind "alt pagedown" { ScrollDown; }
-        bind "alt pageup" { ScrollUp; }
+        bind "down" { ScrollDown; }
+        bind "up" { ScrollUp; }
+
         bind "pagedown" { HalfPageScrollDown; }
         bind "pageup" { HalfPageScrollUp; }
     }
@@ -118,7 +108,7 @@ keybinds clear-defaults=true {
 
 on_force_close "quit"
 
-mouse_mode false
+mouse_mode true
 copy_on_select false
 
 auto_layout true
@@ -130,7 +120,7 @@ serialize_pane_viewport true
 scroll_buffer_size 10000
 
 simplified_ui false
-pane_frames false
+pane_frames true
 ui { 
     pane_frames { 
         rounded_corners true
@@ -141,7 +131,7 @@ theme "meliora"
 
 themes {
     meliora {
-        bg "#1c1917"
+        bg "#302D2B"
         fg "#dad7d5"
         red "#d29595"
         green "#c9b58e"
