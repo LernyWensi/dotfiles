@@ -3,14 +3,13 @@
 theme = "meliora.m"
 
 [editor]
+mouse = true
+idle-timeout = 0
+
 true-color = true
 undercurl = true
 
-auto-info = false
-
 scrolloff = 15
-
-idle-timeout = 0
 
 color-modes = true
 bufferline = "always"
@@ -19,6 +18,13 @@ gutters = ["diff", "line-numbers", "spacer", "diagnostics", "spacer"]
 
 completion-timeout = 0
 completion-trigger-len = 1
+
+auto-info = false
+auto-pairs = false
+continue-comments = false
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -31,9 +37,6 @@ mode.select = "🩷 SELECT🩷"
 left = ["mode", "spacer", "spinner"]
 center = ["file-name"]
 right = ["workspace-diagnostics", "primary-selection-length"]
-
-[editor.whitespace.render]
-tab = "all"
 
 [editor.whitespace.characters]
 nbsp = "‗"
@@ -57,28 +60,16 @@ display-messages = true
 [keys.normal]
 C-k = "signature_help"
 
+tab = "goto_next_tabstop"
+S-tab = "goto_prev_tabstop"
+
 ret = "goto_word"
-A-ret = ["save_selection", "goto_word"]
-
-C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-
-tab = "goto_next_buffer"
-S-tab = "goto_previous_buffer"
 
 x = "select_line_below"
 X = "select_line_above"
 
 C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
-
-[keys.normal.backspace]
-backspace = ":buffer-close"
-o = ":buffer-close-others"
-
-[keys.normal.space]
-w = ":write"
-S-w = ":write-all"
 
 # =============== KEYBINDINGS (SELECT) ===============
 
@@ -95,6 +86,9 @@ C-u = ["page_cursor_half_up", "align_view_center"]
 
 [keys.insert]
 C-k = "signature_help"
+
+tab = "goto_next_tabstop"
+S-tab = "goto_prev_tabstop"
 
 # Facilitate modal editing
 up = "no_op"
