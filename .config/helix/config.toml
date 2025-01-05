@@ -3,40 +3,39 @@
 theme = "meliora.m"
 
 [editor]
-mouse = true
-idle-timeout = 0
+shell = ["fish", "-c"]
 
 true-color = true
 undercurl = true
-
-scrolloff = 15
-
 color-modes = true
 bufferline = "always"
 line-number = "relative"
-gutters = ["diff", "line-numbers", "spacer", "diagnostics", "spacer"]
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+cursorline = true
+scrolloff = 15
 
-completion-timeout = 0
-completion-trigger-len = 1
+completion-timeout = 250
+completion-trigger-len = 2
 
 auto-info = false
 auto-pairs = false
 continue-comments = false
 
-[editor.inline-diagnostics]
-cursor-line = "hint"
+mouse = true
+middle-click-paste = false
+idle-timeout = 250
 
-[editor.cursor-shape]
-insert = "bar"
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.statusline]
-mode.normal = "💜 NORMAL💜"
-mode.insert = "💛 INSERT💛"
-mode.select = "🩷 SELECT🩷"
+mode.normal = "Normal"
+mode.insert = "Insert"
+mode.select = "Select"
 
-left = ["mode", "spacer", "spinner"]
+left = ["mode", "spacer", "version-control", "spacer", "spinner"]
 center = ["file-name"]
-right = ["workspace-diagnostics", "primary-selection-length"]
+right = ["diagnostics", "primary-selection-length", "position"]
 
 [editor.whitespace.characters]
 nbsp = "‗"
@@ -54,14 +53,15 @@ enable = false
 [editor.lsp]
 auto-signature-help = false
 display-messages = true
+display-inlay-hints = false
 
 # =============== KEYBINDINGS (NORMAL) ===============
 
 [keys.normal]
-C-k = "signature_help"
+A-k = "signature_help"
 
-tab = "goto_next_tabstop"
-S-tab = "goto_prev_tabstop"
+C-right = "goto_next_tabstop"
+C-left = "goto_prev_tabstop"
 
 ret = "goto_word"
 
@@ -70,6 +70,9 @@ X = "select_line_above"
 
 C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
+
+tab = ":buffer-next"
+S-tab = ":buffer-previous"
 
 # =============== KEYBINDINGS (SELECT) ===============
 
@@ -85,10 +88,10 @@ C-u = ["page_cursor_half_up", "align_view_center"]
 # =============== KEYBINDINGS (INSERT) ===============
 
 [keys.insert]
-C-k = "signature_help"
+A-k = "signature_help"
 
-tab = "goto_next_tabstop"
-S-tab = "goto_prev_tabstop"
+C-right = "goto_next_tabstop"
+C-left = "goto_prev_tabstop"
 
 # Facilitate modal editing
 up = "no_op"
@@ -111,6 +114,7 @@ h = ":toggle-option lsp.display-inlay-hints"
 w = ":toggle-option whitespace.render all none"
 g = ":toggle-option indent-guides.render"
 d = ":toggle-option inline-diagnostics.cursor-line hint disable"
+f = ":toggle-option auto-format"
 
 [keys.normal.l]
 r = ":lsp-restart"

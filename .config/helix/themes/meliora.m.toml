@@ -1,12 +1,25 @@
 inherits = "meliora"
 
+"function" = { fg = "blue" }
+"constructor" = { fg = "magenta" }
+
+"constant.numeric" = { fg = "yellow" }
+"constant.character" = { fg = "yellow" }
+
+"operator" = { fg = "red" }
+
+"punctuation.delimiter" = { fg = "red" }
+"punctuation.special" = { fg = "red" }
+"punctuation.bracket" = { fg = "dark_white" }
+
 "ui.bufferline.active" = { bg = "magenta", fg = "black" }
 
 "ui.statusline.normal" = { bg = "magenta", fg = "black" }
 "ui.statusline.insert" = { bg = "yellow", fg = "black" }
 "ui.statusline.select" = { bg = "red", fg = "black" }
 
+"ui.virtual.jump-label" = { modifiers = ["italic", "bold", "reversed"] }
+"ui.virtual.inlay-hint" = { modifiers = ["italic", "dim"] }
+
 "diff.plus" = { fg = "magenta" }
 "diff.delta" = { fg = "yellow" }
-
-"ui.virtual.jump-label" = { modifiers = ["bold", "italic", "reversed"] }
