@@ -7,6 +7,11 @@ language-servers = ["haskell-language-server"]
 auto-format = true
 indent = { tab-width = 4, unit = "    " }
 
+# Cabal
+[[language]]
+name = "cabal"
+auto-format = true
+
 # JavaScript
 [[language]]
 name = "javascript"
@@ -98,10 +103,11 @@ soft-wrap = { enable = true }
 
 # haskell-language-server
 [language-server.haskell-language-server.config]
-formattingProvider = "fourmolu"
 checkParents = "AlwaysCheck"
 
 [language-server.haskell-language-server.config.plugin]
+importLens = { codeLensOn = false }
+class = { codeLensOn = false }
 stan = { globalOn = true }
 rename = { config = { crossModule = true } }
 semanticTokens = { globalOn = true }
