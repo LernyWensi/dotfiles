@@ -116,7 +116,7 @@ default_layout "compact"
 default_mode "locked"
 
 session_serialization true
-serialize_pane_viewport true
+serialize_pane_viewport false
 scroll_buffer_size 10000
 
 simplified_ui false
