@@ -1,24 +1,11 @@
 [include]
-    path = ~/.gitconfig.local
-[core]
-    editor = hx
+	path = ~/.gitconfig.local
 [init]
-    defaultBranch = main
+	defaultBranch = main
+[core]
+	editor = hx
+[diff]
+    external = difft
 [alias]
-    co = checkout
-    br = branch
-    ci = commit
-    st = status
-    unstage = reset HEAD --
-    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    ll = --all --decorate --oneline --graph
-[color]
-	ui = true
-[color "diff"]
-	meta = yellow bold
-	old = red bold
-	new = green bold
-[color "status"]
-	added = green bold
-	changed = yellow
-	untracked = cyan
+	log-graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''	  %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+	log-list = log --all --decorate --oneline --graph

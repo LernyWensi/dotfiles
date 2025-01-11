@@ -99,6 +99,16 @@ auto-format = true
 indent = { tab-width = 4, unit = "    " }
 soft-wrap = { enable = true }
 
+[[language]]
+name = "git-config"
+file-types = [
+    { glob = ".gitmodules" },
+    { glob = ".gitconfig.local" },
+    { glob = ".gitconfig" },
+    { glob = ".git/config" },
+    { glob = ".config/git/config" },
+]
+
 # ================= SERVERS =================
 
 # haskell-language-server
@@ -178,11 +188,11 @@ codeActions = { forceStable = true }
 
 [language-server.harper-ls.config.harper-ls.linters]
 spell_check = true
-spelled_numbers = false
+spelled_numbers = true
 an_a = true
-sentence_capitalization = false
+sentence_capitalization = true
 unclosed_quotes = true
-wrong_quotes = false
+wrong_quotes = true
 long_sentences = true
 repeated_words = true
 spaces = true
@@ -190,7 +200,7 @@ matcher = true
 correct_number_suffix = true
 number_suffix_capitalization = true
 multiple_sequential_pronouns = true
-linking_verbs = false
+linking_verbs = true
 avoid_curses = true
 terminating_conjunctions = true
 
