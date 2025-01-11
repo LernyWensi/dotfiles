@@ -120,27 +120,11 @@ serialize_pane_viewport false
 scroll_buffer_size 10000
 
 simplified_ui false
-pane_frames true
+pane_frames false
 ui { 
     pane_frames { 
         rounded_corners true
     }
 }
 
-theme "meliora"
-
-themes {
-    meliora {
-        bg "#302D2B"
-        fg "#dad7d5"
-        red "#d29595"
-        green "#c9b58e"
-        yellow "#c9b58e"
-        blue "#a49db9"
-        magenta "#b494af"
-        orange "#c2b4a8"
-        cyan "#cbab8a"
-        white "#dad7d5"
-        black "#302D2B"
-    }
-}
+theme "ansi"
