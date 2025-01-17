@@ -5,9 +5,9 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "esc" { SwitchToMode "locked"; }
     }
-    shared {
+    shared_except "entersearch" "renamepane" "renametab" {
         bind "alt f" { ToggleFloatingPanes; SwitchToMode "locked"; }
-        bind "alt e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
+        bind "alt e" { EditScrollback; SwitchToMode "locked"; }
         bind "alt z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         
         bind "alt left" { MoveFocus "left"; }
@@ -60,9 +60,7 @@ keybinds clear-defaults=true {
         bind "ctrl shift up" { Resize "decrease up"; }
         bind "ctrl shift right" { Resize "decrease right"; }
 
-        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
-        bind "," { SwitchToMode "scroll"; }
-        bind "e" { EditScrollback; SwitchToMode "locked"; }
+        bind "/" { SwitchToMode "scroll"; }
 
         bind "r" { SwitchToMode "renamepane"; PaneNameInput 0; }
         bind "R" { SwitchToMode "renametab"; TabNameInput 0; }
@@ -78,22 +76,22 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
     }
-    entersearch {
-        bind "enter" { SwitchToMode "search"; }
-    }
-    search {
+    scroll {
+        bind "down" { ScrollDown; }
+        bind "up" { ScrollUp; }
+        bind "pagedown" { HalfPageScrollDown; }
+        bind "pageup" { HalfPageScrollUp; }
+
+        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+
         bind "n" { Search "down"; }
         bind "N" { Search "up"; }
 
         bind "c" { SearchToggleOption "casesensitivity"; }
         bind "w" { SearchToggleOption "wholeword"; }
     }
-    shared_among "search" "scroll" {
-        bind "down" { ScrollDown; }
-        bind "up" { ScrollUp; }
-
-        bind "pagedown" { HalfPageScrollDown; }
-        bind "pageup" { HalfPageScrollUp; }
+    entersearch {
+        bind "enter" { SwitchToMode "scroll"; }
     }
     shared_among "renamepane" "renametab" {
         bind "enter" { SwitchToMode "locked"; }
@@ -108,7 +106,7 @@ keybinds clear-defaults=true {
 
 on_force_close "quit"
 
-mouse_mode true
+mouse_mode false
 copy_on_select false
 
 auto_layout true
