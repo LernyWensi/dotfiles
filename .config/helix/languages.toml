@@ -3,9 +3,7 @@
 # Haskell
 [[language]]
 name = "haskell"
-language-servers = ["haskell-language-server"]
 auto-format = true
-indent = { tab-width = 4, unit = "    " }
 
 # Cabal
 [[language]]
@@ -16,87 +14,81 @@ auto-format = true
 [[language]]
 name = "javascript"
 language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
-auto-format = true
 formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
 indent = { tab-width = 4, unit = "    " }
+auto-format = true
 
 # JSX
 [[language]]
 name = "jsx"
-language-servers = ["typescript-language-server", "emmet-lsp", "tailwindcss-ls", "vscode-eslint-language-server"]
-auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server", "tailwindcss-ls", "emmet-lsp"]
 formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
 indent = { tab-width = 4, unit = "    " }
+auto-format = true
 
 # TypeScript
 [[language]]
 name = "typescript"
 language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
-auto-format = true
 formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
 indent = { tab-width = 4, unit = "    " }
+auto-format = true
 
 # TSX
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server", "emmet-lsp", "tailwindcss-ls", "vscode-eslint-language-server"]
-auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server", "tailwindcss-ls", "emmet-lsp"]
 formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
 indent = { tab-width = 4, unit = "    " }
+auto-format = true
 
 # HTML
 [[language]]
 name = "html"
-language-servers = ["vscode-html-language-server", "emmet-lsp", "tailwindcss-ls"]
-auto-format = true
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "emmet-lsp"]
 formatter = { command = "npx", args = ["prettier", "--parser", "html"] }
 indent = { tab-width = 4, unit = "    " }
 
 # CSS
 [[language]]
 name = "css"
-language-servers = ["vscode-css-language-server", "emmet-lsp", "tailwindcss-ls"]
-auto-format = true
+language-servers = ["vscode-css-language-server", "tailwindcss-ls", "emmet-lsp"]
 formatter = { command = "npx", args = ["prettier", "--parser", "css"] }
 indent = { tab-width = 4, unit = "    " }
 
 # JSON
 [[language]]
 name = "json"
-auto-format = true
 formatter = { command = "npx", args = ["prettier", "--parser", "json"] }
 indent = { tab-width = 4, unit = "    " }
 
 # JSONC
 [[language]]
 name = "jsonc"
-auto-format = true
 formatter = { command = "npx", args = ["prettier", "--parser", "jsonc"] }
 indent = { tab-width = 4, unit = "    " }
 
 # TOML
 [[language]]
 name = "toml"
-language-servers = ["taplo"]
-auto-format = true
 formatter = { command = "taplo", args = ["fmt", "-"] }
 indent = { tab-width = 4, unit = "    " }
+auto-format = true
 
 # Markdown
 [[language]]
 name = "markdown"
 language-servers = ["marksman", "harper-ls", "mdpls"]
-auto-format = true
 formatter = { command = "npx", args = ["prettier", "--parser", "markdown"] }
 indent = { tab-width = 4, unit = "    " }
+auto-format = true
 soft-wrap = { enable = true }
 
 # typst
 [[language]]
 name = "typst"
-language-servers = ["tinymist"]
-auto-format = true
 indent = { tab-width = 4, unit = "    " }
+auto-format = true
 soft-wrap = { enable = true }
 
 [[language]]
@@ -220,7 +212,7 @@ command = "tinymist"
 [language-server.tinymist.config]
 exportPdf = "onType"
 formatterMode = "typstyle"
-formatterPrintWidth = "90"
+formatterPrintWidth = "120"
 outputPath = "$dir/dist/$name"
 
 # tailwindcss-ls

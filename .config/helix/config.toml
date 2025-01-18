@@ -7,36 +7,32 @@ shell = ["fish", "-c"]
 
 true-color = true
 undercurl = true
-color-modes = true
 bufferline = "always"
 line-number = "relative"
-gutters = ["line-numbers", "spacer", "diff"]
-cursorline = true
+gutters = ["diff", "line-numbers", "spacer"]
 scrolloff = 15
 
 completion-timeout = 5
-completion-trigger-len = 0
+completion-trigger-len = 1
 
 auto-info = false
 auto-pairs = false
 continue-comments = false
 
-mouse = true
+mouse = false
 middle-click-paste = false
 idle-timeout = 100
 
 [editor.cursor-shape]
-normal = "block"
 insert = "bar"
-select = "underline"
+select = "hidden"
 
 [editor.statusline]
 left = ["file-name", "spinner"]
 center = []
-right = ["diagnostics", "primary-selection-length"]
+right = ["diagnostics"]
 
 [editor.whitespace.characters]
-nbsp = "‗"
 newline = "↩"
 
 [editor.inline-diagnostics]
@@ -44,9 +40,7 @@ cursor-line = "hint"
 
 [editor.lsp]
 auto-signature-help = false
-display-messages = true
 display-progress-messages = true
-display-inlay-hints = false
 
 [editor.file-picker]
 hidden = false
@@ -70,8 +64,8 @@ ret = "goto_word"
 x = "select_line_below"
 X = "select_line_above"
 
-S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
@@ -87,8 +81,8 @@ ret = "goto_word"
 x = "select_line_below"
 X = "select_line_above"
 
-S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
