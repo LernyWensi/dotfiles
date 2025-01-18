@@ -1,14 +1,8 @@
-function ls --wraps eza
-    eza \
-        --tree \
-        --level 1 \
-        --all \
+function ls --wraps ls
+    command ls \
+        --almost-all \
+        --color \
+        --classify \
         --group-directories-first \
-        --classify always \
-        --no-user \
-        --git \
-        --git-repos \
-        --time-style long-iso \
-        --icons always \
         $argv
 end
