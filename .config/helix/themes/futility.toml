@@ -1,10 +1,18 @@
 # ====================== SYNTAX ======================
-"comment" = { fg = "text-highlight", modifiers = ["dim"] }
+
+"comment" = { fg = "text-subtle", modifiers = ["italic"] }
+
 "operator" = { fg = "blue" }
 "punctuation" = { fg = "blue" }
+"punctuation.bracket" = { fg = "text-subtle" }
+
 "string" = { fg = "text-highlight", modifiers = ["italic"] }
+"constant.numeric" = { fg = "green" }
+
+"keyword" = { fg = "text-highlight" }
 
 # ======================== UI ========================
+
 "ui.background" = { fg = "text-subtle", bg = "background" }
 
 "ui.cursor" = { fg = "background", bg = "text" }
@@ -54,6 +62,7 @@
 "diff.delta" = { fg = "yellow" }
 
 # ====================== COLORS ======================
+
 [palette]
 text = "#b5b2b0"
 text-subtle = "#4c4b49"
