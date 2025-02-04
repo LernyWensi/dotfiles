@@ -4,15 +4,19 @@
 [[language]]
 name = "haskell"
 auto-format = true
+indent = { tab-width = 4, unit = "  " }
 
 # Cabal
 [[language]]
 name = "cabal"
+file-types = ["cabal", "cabal.project"]
 auto-format = true
 
 # C
 [[language]]
 name = "c"
+file-types = ["c", "h"]
+indent = { tab-width = 4, unit = "  " }
 auto-format = true
 
 # JavaScript
@@ -111,6 +115,7 @@ file-types = [
 # haskell-language-server
 [language-server.haskell-language-server.config]
 checkParents = "AlwaysCheck"
+formattingProvider = "fourmolu"
 
 [language-server.haskell-language-server.config.plugin]
 importLens = { codeLensOn = false }
