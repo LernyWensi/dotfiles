@@ -1,0 +1,16 @@
+indentation: 4
+indent-wheres: true
+record-brace-space: true
+trailing-section-operators: false
+respectful: false
+
+let-style: inline
+in-style: left-align
+function-arrows: leading
+
+sort-constraints: true
+sort-derived-classes: true
+sort-deriving-clauses: true
+
+import-grouping: by-scope-then-qualified
+haddock-style: single-line
