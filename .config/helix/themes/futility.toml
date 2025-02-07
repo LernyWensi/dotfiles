@@ -1,13 +1,14 @@
 # ====================== SYNTAX ======================
 
-"comment" = { fg = "text-subtle", modifiers = ["italic"] }
+"comment" = { fg = "text-subtle" }
 
 "operator" = { fg = "blue" }
 "punctuation" = { fg = "blue" }
 "punctuation.bracket" = { fg = "text-subtle" }
 
-"string" = { fg = "text-highlight", modifiers = ["italic"] }
-"constant.numeric" = { fg = "green" }
+"string" = { fg = "text-highlight" }
+"constant" = { fg = "green" }
+"constant.character" = { fg = "text-highlight" }
 
 "keyword" = { fg = "text-highlight" }
 
@@ -15,14 +16,15 @@
 
 "ui.background" = { fg = "text-subtle", bg = "background" }
 
-"ui.cursor" = { fg = "background", bg = "text" }
+"ui.cursor" = { fg = "background", bg = "text-subtle" }
 "ui.cursor.match" = { fg = "text-highlight", bg = "background-highlight" }
 "ui.cursor.primary" = { fg = "background-highlight", bg = "text-highlight" }
+"ui.cursor.primary.select" = { fg = "background-subtle", bg = "text" }
 
 "ui.linenr.selected" = { fg = "text" }
 
-"ui.statusline" = { fg = "text", bg = "background-subtle" }
-"ui.bufferline" = { fg = "text", bg = "background-subtle" }
+"ui.statusline" = { fg = "text-highlight", bg = "background-subtle" }
+"ui.bufferline" = { fg = "text-subtle", bg = "background-subtle" }
 "ui.bufferline.active" = { fg = "text-highlight", bg = "background-highlight" }
 
 "ui.popup" = { bg = "background-subtle" }
@@ -37,13 +39,13 @@
 "ui.virtual.indent-guide" = { fg = "text-subtle" }
 "ui.virtual.inlay-hint" = { fg = "text-subtle" }
 "ui.virtual.wrap" = { fg = "text-subtle" }
-"ui.virtual.jump-label" = { fg = "text-highlight", bg = "background-highlight" }
+"ui.virtual.jump-label" = { fg = "magenta" }
 
 "ui.menu" = { fg = "text", bg = "background-subtle" }
 "ui.menu.selected" = { fg = "text-highlight", bg = "background-highlight" }
 "ui.menu.scroll" = { fg = "text-subtle", bg = "background-subtle" }
 
-"ui.selection" = { bg = "background-highlight" }
+"ui.selection" = { bg = "background-subtle" }
 
 "diagnostic.error" = { underline = { color = "red", style = "curl" } }
 "diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }

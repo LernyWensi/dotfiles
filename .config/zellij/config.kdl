@@ -17,6 +17,9 @@ keybinds clear-defaults=true {
 
         bind "alt a" { ToggleTab; SwitchToMode "locked"; }
 
+        bind "alt pagedown" { GoToNextTab; }
+        bind "alt pageup" { GoToPreviousTab; }
+
         bind "alt 1" { GoToTab 1; SwitchToMode "locked"; }
         bind "alt 2" { GoToTab 2; SwitchToMode "locked"; }
         bind "alt 3" { GoToTab 3; SwitchToMode "locked"; }
@@ -28,9 +31,6 @@ keybinds clear-defaults=true {
         bind "alt 9" { GoToTab 9; SwitchToMode "locked"; }
     }
     normal {
-        bind "tab" { GoToNextTab; }
-        bind "shift tab" { GoToPreviousTab; }
-
         bind "t" { NewTab; SwitchToMode "locked"; }
         bind "Q" { CloseTab; SwitchToMode "locked"; }
 

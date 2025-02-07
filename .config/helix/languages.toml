@@ -9,7 +9,7 @@ indent = { tab-width = 4, unit = "  " }
 # Cabal
 [[language]]
 name = "cabal"
-file-types = ["cabal", "cabal.project"]
+file-types = ["cabal", "project"]
 auto-format = true
 
 # C
@@ -216,7 +216,7 @@ command = "mdpls"
 [language-server.mdpls.config]
 markdown.preview.auto = false
 markdown.preview.serveStatic = true
-markdown.preview.browser = "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+markdown.preview.browser = "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
 
 # tinymist
 [language-server.tinymist]

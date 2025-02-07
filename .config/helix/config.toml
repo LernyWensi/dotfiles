@@ -23,9 +23,13 @@ mouse = false
 middle-click-paste = false
 idle-timeout = 100
 
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
 [editor.cursor-shape]
 insert = "bar"
-select = "hidden"
 
 [editor.statusline]
 left = ["file-name", "spinner"]
@@ -34,9 +38,6 @@ right = ["diagnostics"]
 
 [editor.whitespace.characters]
 newline = "↩"
-
-[editor.inline-diagnostics]
-cursor-line = "hint"
 
 [editor.lsp]
 auto-signature-help = false
@@ -56,22 +57,36 @@ max-indent-retain = 0
 [keys.normal]
 A-k = "signature_help"
 
-C-right = "goto_next_tabstop"
-C-left = "goto_prev_tabstop"
+tab = "goto_next_tabstop"
+S-tab = "goto_prev_tabstop"
 
 ret = "goto_word"
 
 x = "select_line_below"
 X = "select_line_above"
 
-C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
 
-tab = ":buffer-next"
-S-tab = ":buffer-previous"
+C-pagedown = ":buffer-next"
+C-pageup = ":buffer-previous"
+
+A-e = "move_next_sub_word_end"
+A-w = "move_next_sub_word_start"
+A-b = "move_prev_sub_word_start"
+
+C-up = "jump_view_up"
+C-down = "jump_view_down"
+C-left = "jump_view_left"
+C-right = "jump_view_right"
+
+C-S-up = "swap_view_up"
+C-S-left = "swap_view_left"
+C-S-down = "swap_view_down"
+C-S-right = "swap_view_right"
 
 # =============== KEYBINDINGS (SELECT) ===============
 
@@ -81,8 +96,8 @@ ret = "goto_word"
 x = "select_line_below"
 X = "select_line_above"
 
-C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
@@ -92,8 +107,8 @@ C-u = ["page_cursor_half_up", "align_view_center"]
 [keys.insert]
 A-k = "signature_help"
 
-C-right = "goto_next_tabstop"
-C-left = "goto_prev_tabstop"
+tab = "goto_next_tabstop"
+S-tab = "goto_prev_tabstop"
 
 up = "no_op"
 down = "no_op"
@@ -107,14 +122,13 @@ end = "no_op"
 # =============== KEYBINDINGS (CONFIG) ===============
 
 [keys.normal.h]
+r = ":config-reload"
 c = ":open ~/.config/helix/config.toml"
 l = ":open ~/.config/helix/languages.toml"
-r = ":config-reload"
 
 h = ":toggle-option lsp.display-inlay-hints"
 w = ":toggle-option whitespace.render all none"
 g = ":toggle-option indent-guides.render"
-d = ":toggle-option inline-diagnostics.cursor-line hint disable"
 f = ":toggle-option auto-format"
 
 [keys.normal.l]
