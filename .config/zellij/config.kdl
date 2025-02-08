@@ -9,7 +9,12 @@ keybinds clear-defaults=true {
         bind "alt f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "alt e" { EditScrollback; SwitchToMode "locked"; }
         bind "alt z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        bind "alt t" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
         
+        bind "alt shift t" { BreakPane; SwitchToMode "locked"; }
+        bind "alt shift pagedown" { BreakPaneRight; SwitchToMode "locked"; }
+        bind "alt shift pageup" { BreakPaneLeft; SwitchToMode "locked"; }
+
         bind "alt left" { MoveFocus "left"; }
         bind "alt down" { MoveFocus "down"; }
         bind "alt up" { MoveFocus "up"; }
@@ -118,11 +123,27 @@ serialize_pane_viewport false
 scroll_buffer_size 10000
 
 simplified_ui false
-pane_frames false
+pane_frames true
 ui { 
     pane_frames { 
         rounded_corners true
     }
 }
 
-theme "ansi"
+theme "futility"
+
+themes {
+    futility {
+        fg "#b3b3b3"
+        bg "#101010"
+        black "#101010"
+        red "#101010"
+        green "#747eb3"
+        magenta "#747eb3"
+        cyan "#b3b3b3"
+        white "#b3b3b3"
+        orange "#4d4d4d"
+        yellow "#747eb3"
+        blue "#747eb3"
+    }
+}

@@ -6,58 +6,57 @@
 "punctuation" = { fg = "blue" }
 "punctuation.bracket" = { fg = "text-subtle" }
 
-"string" = { fg = "text-highlight" }
-"constant" = { fg = "green" }
-"constant.character" = { fg = "text-highlight" }
+"string" = { fg = "text-subtle" }
+"constant" = { fg = "blue" }
+"constant.character" = { fg = "text-subtle" }
 
-"keyword" = { fg = "text-highlight" }
+"keyword" = { fg = "blue" }
 
 # ======================== UI ========================
 
 "ui.background" = { fg = "text-subtle", bg = "background" }
 
-"ui.cursor" = { fg = "background", bg = "text-subtle" }
-"ui.cursor.match" = { fg = "text-highlight", bg = "background-highlight" }
-"ui.cursor.primary" = { fg = "background-highlight", bg = "text-highlight" }
-"ui.cursor.primary.select" = { fg = "background-subtle", bg = "text" }
+"ui.cursor" = { fg = "background", bg = "text" }
+"ui.cursor.match" = { fg = "blue" }
+"ui.cursor.primary" = { fg = "text", bg = "blue" }
 
-"ui.linenr.selected" = { fg = "text" }
+"ui.linenr.selected" = { fg = "blue" }
 
-"ui.statusline" = { fg = "text-highlight", bg = "background-subtle" }
+"ui.statusline" = { fg = "text", bg = "background-subtle" }
 "ui.bufferline" = { fg = "text-subtle", bg = "background-subtle" }
-"ui.bufferline.active" = { fg = "text-highlight", bg = "background-highlight" }
+"ui.bufferline.active" = { fg = "blue", bg = "background" }
 
-"ui.popup" = { bg = "background-subtle" }
-"ui.picker.header.column.active" = { fg = "text-highlight" }
-"ui.help" = { fg = "text", bg = "background-subtle" }
+"ui.popup" = { bg = "background" }
+"ui.picker.header.column.active" = { fg = "blue" }
+"ui.help" = { fg = "text", bg = "background" }
 
 "ui.text" = { fg = "text" }
-"ui.text.focus" = { fg = "text-highlight", bg = "background-highlight" }
+"ui.text.focus" = { fg = "blue", bg = "background-subtle" }
 
 "ui.virtual.ruler" = { bg = "background-subtle" }
 "ui.virtual.whitespace" = { fg = "text-subtle" }
 "ui.virtual.indent-guide" = { fg = "text-subtle" }
 "ui.virtual.inlay-hint" = { fg = "text-subtle" }
 "ui.virtual.wrap" = { fg = "text-subtle" }
-"ui.virtual.jump-label" = { fg = "magenta" }
+"ui.virtual.jump-label" = { fg = "text-subtle" }
 
-"ui.menu" = { fg = "text", bg = "background-subtle" }
-"ui.menu.selected" = { fg = "text-highlight", bg = "background-highlight" }
-"ui.menu.scroll" = { fg = "text-subtle", bg = "background-subtle" }
+"ui.menu" = { fg = "text", bg = "background" }
+"ui.menu.selected" = { fg = "blue", bg = "background-subtle" }
+"ui.menu.scroll" = { fg = "blue", bg = "background-subtle" }
 
 "ui.selection" = { bg = "background-subtle" }
 
-"diagnostic.error" = { underline = { color = "red", style = "curl" } }
-"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
-"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
-"diagnostic.hint" = { underline = { color = "magenta", style = "curl" } }
+"diagnostic.error" = { fg = "red", underline = { style = "curl" } }
+"diagnostic.warning" = { fg = "yellow", underline = { style = "curl" } }
+"diagnostic.info" = { fg = "green", underline = { style = "curl" } }
+"diagnostic.hint" = { fg = "green", underline = { style = "curl" } }
 "diagnostic.unnecessary" = { modifiers = ["dim"] }
 "diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
 "error" = { fg = "red" }
 "warning" = { fg = "yellow" }
-"info" = { fg = "blue" }
-"hint" = { fg = "magenta" }
+"info" = { fg = "green" }
+"hint" = { fg = "green" }
 
 "diff.plus" = { fg = "green" }
 "diff.minus" = { fg = "red" }
@@ -66,16 +65,13 @@
 # ====================== COLORS ======================
 
 [palette]
-text = "#b5b2b0"
-text-subtle = "#4c4b49"
-text-highlight = "#a8968a"
+text = "#b3b3b3"
+text-subtle = "#4d4d4d"
 
-background = "#1c1917"
-background-subtle = "#252220"
-background-highlight = "#302D2B"
+background = "#000000"
+background-subtle = "#101010"
 
-red = "#a88a8a"
-yellow = "#a8a18a"
-green = "#8aa88a"
-blue = "#958aa8"
-magenta = "#a88aa6"
+red = "#b37474"
+yellow = "#b3a374"
+green = "#74b389"
+blue = "#747eb3"

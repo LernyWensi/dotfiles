@@ -10,6 +10,7 @@ undercurl = true
 bufferline = "always"
 line-number = "relative"
 gutters = ["diff", "line-numbers", "spacer"]
+popup-border = "all"
 scrolloff = 15
 
 completion-timeout = 5
@@ -23,10 +24,8 @@ mouse = false
 middle-click-paste = false
 idle-timeout = 100
 
-end-of-line-diagnostics = "hint"
-
 [editor.inline-diagnostics]
-cursor-line = "warning"
+cursor-line = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
