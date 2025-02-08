@@ -6,7 +6,7 @@
 "punctuation" = { fg = "blue" }
 "punctuation.bracket" = { fg = "text-subtle" }
 
-"string" = { fg = "text-subtle" }
+"string" = { fg = "text-subtle", modifiers = ["italic"] }
 "constant" = { fg = "blue" }
 "constant.character" = { fg = "text-subtle" }
 
@@ -19,6 +19,7 @@
 "ui.cursor" = { fg = "background", bg = "text" }
 "ui.cursor.match" = { fg = "blue" }
 "ui.cursor.primary" = { fg = "text", bg = "blue" }
+"ui.cursor.primary.select" = { fg = "white", bg = "text-subtle" }
 
 "ui.linenr.selected" = { fg = "blue" }
 
@@ -38,7 +39,7 @@
 "ui.virtual.indent-guide" = { fg = "text-subtle" }
 "ui.virtual.inlay-hint" = { fg = "text-subtle" }
 "ui.virtual.wrap" = { fg = "text-subtle" }
-"ui.virtual.jump-label" = { fg = "text-subtle" }
+"ui.virtual.jump-label" = { fg = "blue" }
 
 "ui.menu" = { fg = "text", bg = "background" }
 "ui.menu.selected" = { fg = "blue", bg = "background-subtle" }
