@@ -2,7 +2,6 @@ indentation: 4
 indent-wheres: true
 record-brace-space: true
 trailing-section-operators: false
-respectful: false
 
 let-style: inline
 in-style: left-align
