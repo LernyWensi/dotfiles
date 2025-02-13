@@ -12,6 +12,21 @@
 
 "keyword" = { fg = "blue" }
 
+# ====================== MARKUP ======================
+
+"markup.bold" = { fg = "blue", modifiers = ["bold"] }
+"markup.italic" = { fg = "blue", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "text-subtle", modifiers = ["crossed_out"] }
+
+"markup.heading" = { bg = "blue-subtle" }
+"markup.raw" = { bg = "blue-subtle" }
+"markup.quote" = { fg = "text" }
+
+"markup.list" = { fg = "blue" }
+"markup.list.checked" = { fg = "text-subtle", modifiers = ["crossed_out"] }
+
+"markup.link" = { fg = "blue", underline = { style = "line" } }
+
 # ======================== UI ========================
 
 "ui.background" = { fg = "text-subtle", bg = "background" }
@@ -39,7 +54,7 @@
 "ui.virtual.indent-guide" = { fg = "text-subtle" }
 "ui.virtual.inlay-hint" = { fg = "text-subtle" }
 "ui.virtual.wrap" = { fg = "text-subtle" }
-"ui.virtual.jump-label" = { fg = "blue" }
+"ui.virtual.jump-label" = { modifiers = ["reversed"] }
 
 "ui.menu" = { fg = "text", bg = "background" }
 "ui.menu.selected" = { fg = "blue", bg = "background-subtle" }
@@ -76,3 +91,4 @@ red = "#b37474"
 yellow = "#b3a374"
 green = "#74b389"
 blue = "#747eb3"
+blue-subtle = "#222433"
