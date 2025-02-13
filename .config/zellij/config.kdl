@@ -111,7 +111,7 @@ keybinds clear-defaults=true {
 
 on_force_close "quit"
 
-mouse_mode false
+mouse_mode true
 copy_on_select false
 
 auto_layout true

@@ -17,10 +17,10 @@ completion-timeout = 5
 completion-trigger-len = 1
 
 auto-info = false
-auto-pairs = true
-continue-comments = true
+auto-pairs = false
+continue-comments = false
 
-mouse = false
+mouse = true
 middle-click-paste = false
 idle-timeout = 100
 
@@ -33,7 +33,7 @@ insert = "underline"
 [editor.statusline]
 left = ["file-name", "spinner"]
 center = []
-right = ["diagnostics", "primary-selection-length"]
+right = ["diagnostics", "primary-selection-length", "position"]
 
 [editor.soft-wrap]
 max-indent-retain = 0
@@ -86,6 +86,10 @@ C-S-up = "swap_view_up"
 C-S-left = "swap_view_left"
 C-S-down = "swap_view_down"
 C-S-right = "swap_view_right"
+
+[keys.normal.backspace]
+backspace = ":buffer-close"
+o = ":buffer-close-others"
 
 # =============== KEYBINDINGS (SELECT) ===============
 
