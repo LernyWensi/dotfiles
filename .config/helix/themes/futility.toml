@@ -1,14 +1,15 @@
 # ====================== SYNTAX ======================
 
-"comment" = { fg = "text-subtle" }
+"comment" = { fg = "fg-subtle" }
 
 "operator" = { fg = "blue" }
 "punctuation" = { fg = "blue" }
-"punctuation.bracket" = { fg = "text-subtle" }
+"punctuation.bracket" = { fg = "fg-subtle" }
 
-"string" = { fg = "text-subtle", modifiers = ["italic"] }
+"string" = { fg = "fg-subtle", modifiers = ["italic"] }
 "constant" = { fg = "blue" }
-"constant.character" = { fg = "text-subtle" }
+"constant.character" = { fg = "fg-subtle" }
+"constant.character.escape" = { fg = "blue" }
 
 "keyword" = { fg = "blue" }
 
@@ -16,51 +17,51 @@
 
 "markup.bold" = { fg = "blue", modifiers = ["bold"] }
 "markup.italic" = { fg = "blue", modifiers = ["italic"] }
-"markup.strikethrough" = { fg = "text-subtle", modifiers = ["crossed_out"] }
+"markup.strikethrough" = { fg = "fg-subtle", modifiers = ["crossed_out"] }
 
-"markup.heading" = { bg = "blue-subtle" }
-"markup.raw" = { bg = "blue-subtle" }
-"markup.quote" = { fg = "text" }
+"markup.heading" = { bg = "fg-subtle-alt" }
+"markup.raw" = { bg = "fg-subtle-alt" }
+"markup.quote" = { fg = "fg" }
 
 "markup.list" = { fg = "blue" }
-"markup.list.checked" = { fg = "text-subtle", modifiers = ["crossed_out"] }
+"markup.list.checked" = { fg = "fg-subtle", modifiers = ["crossed_out"] }
 
 "markup.link" = { fg = "blue", underline = { style = "line" } }
 
 # ======================== UI ========================
 
-"ui.background" = { fg = "text-subtle", bg = "background" }
+"ui.background" = { fg = "fg-subtle", bg = "bg" }
 
-"ui.cursor" = { fg = "background", bg = "text" }
+"ui.cursor" = { fg = "bg", bg = "fg" }
 "ui.cursor.match" = { fg = "blue" }
-"ui.cursor.primary" = { fg = "text", bg = "blue" }
-"ui.cursor.primary.select" = { fg = "white", bg = "text-subtle" }
+"ui.cursor.primary" = { fg = "bg", bg = "blue" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "fg-subtle" }
 
 "ui.linenr.selected" = { fg = "blue" }
 
-"ui.statusline" = { fg = "text", bg = "background-subtle" }
-"ui.bufferline" = { fg = "text-subtle", bg = "background-subtle" }
-"ui.bufferline.active" = { fg = "blue", bg = "background" }
+"ui.statusline" = { fg = "fg", bg = "bg-subtle" }
+"ui.bufferline" = { fg = "fg-subtle", bg = "bg-subtle" }
+"ui.bufferline.active" = { fg = "blue", bg = "bg" }
 
-"ui.popup" = { bg = "background" }
+"ui.popup" = { bg = "bg" }
 "ui.picker.header.column.active" = { fg = "blue" }
-"ui.help" = { fg = "text", bg = "background" }
+"ui.help" = { fg = "fg", bg = "bg" }
 
-"ui.text" = { fg = "text" }
-"ui.text.focus" = { fg = "blue", bg = "background-subtle" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "blue", bg = "bg-subtle" }
 
-"ui.virtual.ruler" = { bg = "background-subtle" }
-"ui.virtual.whitespace" = { fg = "text-subtle" }
-"ui.virtual.indent-guide" = { fg = "text-subtle" }
-"ui.virtual.inlay-hint" = { fg = "text-subtle" }
-"ui.virtual.wrap" = { fg = "text-subtle" }
+"ui.virtual.ruler" = { bg = "bg-subtle" }
+"ui.virtual.whitespace" = { fg = "fg-subtle-alt" }
+"ui.virtual.indent-guide" = { fg = "fg-subtle" }
+"ui.virtual.inlay-hint" = { fg = "fg-subtle" }
+"ui.virtual.wrap" = { fg = "fg-subtle-alt" }
 "ui.virtual.jump-label" = { modifiers = ["reversed"] }
 
-"ui.menu" = { fg = "text", bg = "background" }
-"ui.menu.selected" = { fg = "blue", bg = "background-subtle" }
-"ui.menu.scroll" = { fg = "blue", bg = "background-subtle" }
+"ui.menu" = { fg = "fg", bg = "bg" }
+"ui.menu.selected" = { fg = "blue", bg = "bg-subtle" }
+"ui.menu.scroll" = { fg = "blue", bg = "bg-subtle" }
 
-"ui.selection" = { bg = "background-subtle" }
+"ui.selection" = { bg = "bg-subtle" }
 
 "diagnostic.error" = { fg = "red", underline = { style = "curl" } }
 "diagnostic.warning" = { fg = "yellow", underline = { style = "curl" } }
@@ -81,14 +82,14 @@
 # ====================== COLORS ======================
 
 [palette]
-text = "#b3b3b3"
-text-subtle = "#4d4d4d"
+fg = "#b3b3b3"
+fg-subtle = "#4d4d4d"
+fg-subtle-alt = "#222433"
 
-background = "#000000"
-background-subtle = "#101010"
+bg = "#000000"
+bg-subtle = "#151515"
 
 red = "#b37474"
 yellow = "#b3a374"
 green = "#74b389"
 blue = "#747eb3"
-blue-subtle = "#222433"

@@ -1,63 +1,79 @@
 # ====================== SYNTAX ======================
 
-"comment" = { fg = "text-subtle" }
+"comment" = { fg = "fg-subtle" }
 
 "operator" = { fg = "blue" }
 "punctuation" = { fg = "blue" }
-"punctuation.bracket" = { fg = "text-subtle" }
+"punctuation.bracket" = { fg = "fg-subtle" }
 
-"string" = { fg = "text-highlight" }
-"constant" = { fg = "green" }
-"constant.character" = { fg = "text-highlight" }
+"string" = { fg = "orange", modifiers = ["italic"] }
+"constant" = { fg = "magenta" }
+"constant.character" = { fg = "orange" }
+"constant.character.escape" = { fg = "magenta" }
 
-"keyword" = { fg = "text-highlight" }
+"keyword" = { fg = "magenta" }
+
+# ====================== MARKUP ======================
+
+"markup.bold" = { fg = "magenta", modifiers = ["bold"] }
+"markup.italic" = { fg = "magenta", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "fg-subtle", modifiers = ["crossed_out"] }
+
+"markup.heading" = { fg = "orange", bg = "fg-subtle-alt" }
+"markup.raw" = { bg = "fg-subtle-alt" }
+"markup.quote" = { fg = "fg" }
+
+"markup.list" = { fg = "blue" }
+"markup.list.checked" = { fg = "fg-subtle", modifiers = ["crossed_out"] }
+
+"markup.link" = { fg = "blue", underline = { style = "line" } }
 
 # ======================== UI ========================
 
-"ui.background" = { fg = "text-subtle", bg = "background" }
+"ui.background" = { fg = "fg-subtle", bg = "bg" }
 
-"ui.cursor" = { fg = "background", bg = "text-subtle" }
-"ui.cursor.match" = { fg = "text-highlight", bg = "background-highlight" }
-"ui.cursor.primary" = { fg = "background-highlight", bg = "text-highlight" }
-"ui.cursor.primary.select" = { fg = "background-subtle", bg = "text" }
+"ui.cursor" = { fg = "bg", bg = "fg" }
+"ui.cursor.match" = { fg = "blue" }
+"ui.cursor.primary" = { fg = "bg", bg = "blue" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "fg-subtle" }
 
-"ui.linenr.selected" = { fg = "text" }
+"ui.linenr.selected" = { fg = "blue" }
 
-"ui.statusline" = { fg = "text-highlight", bg = "background-subtle" }
-"ui.bufferline" = { fg = "text-subtle", bg = "background-subtle" }
-"ui.bufferline.active" = { fg = "text-highlight", bg = "background-highlight" }
+"ui.statusline" = { fg = "orange", bg = "bg-subtle" }
+"ui.bufferline" = { fg = "fg-subtle", bg = "bg-subtle" }
+"ui.bufferline.active" = { fg = "orange", bg = "bg" }
 
-"ui.popup" = { bg = "background-subtle" }
-"ui.picker.header.column.active" = { fg = "text-highlight" }
-"ui.help" = { fg = "text", bg = "background-subtle" }
+"ui.popup" = { bg = "bg" }
+"ui.picker.header.column.active" = { fg = "orange" }
+"ui.help" = { fg = "fg", bg = "bg" }
 
-"ui.text" = { fg = "text" }
-"ui.text.focus" = { fg = "text-highlight", bg = "background-highlight" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "orange", bg = "bg-subtle" }
 
-"ui.virtual.ruler" = { bg = "background-subtle" }
-"ui.virtual.whitespace" = { fg = "text-subtle" }
-"ui.virtual.indent-guide" = { fg = "text-subtle" }
-"ui.virtual.inlay-hint" = { fg = "text-subtle" }
-"ui.virtual.wrap" = { fg = "text-subtle" }
-"ui.virtual.jump-label" = { fg = "magenta" }
+"ui.virtual.ruler" = { bg = "bg-subtle" }
+"ui.virtual.whitespace" = { fg = "fg-subtle-alt" }
+"ui.virtual.indent-guide" = { fg = "fg-subtle" }
+"ui.virtual.inlay-hint" = { fg = "fg-subtle" }
+"ui.virtual.wrap" = { fg = "fg-subtle-alt" }
+"ui.virtual.jump-label" = { modifiers = ["reversed"] }
 
-"ui.menu" = { fg = "text", bg = "background-subtle" }
-"ui.menu.selected" = { fg = "text-highlight", bg = "background-highlight" }
-"ui.menu.scroll" = { fg = "text-subtle", bg = "background-subtle" }
+"ui.menu" = { fg = "fg", bg = "bg" }
+"ui.menu.selected" = { fg = "orange", bg = "bg-subtle" }
+"ui.menu.scroll" = { fg = "orange", bg = "bg-subtle" }
 
-"ui.selection" = { bg = "background-subtle" }
+"ui.selection" = { bg = "bg-subtle" }
 
-"diagnostic.error" = { underline = { color = "red", style = "curl" } }
-"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
-"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
-"diagnostic.hint" = { underline = { color = "magenta", style = "curl" } }
+"diagnostic.error" = { fg = "red", underline = { style = "curl" } }
+"diagnostic.warning" = { fg = "yellow", underline = { style = "curl" } }
+"diagnostic.info" = { fg = "green", underline = { style = "curl" } }
+"diagnostic.hint" = { fg = "green", underline = { style = "curl" } }
 "diagnostic.unnecessary" = { modifiers = ["dim"] }
 "diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
 "error" = { fg = "red" }
 "warning" = { fg = "yellow" }
-"info" = { fg = "blue" }
-"hint" = { fg = "magenta" }
+"info" = { fg = "green" }
+"hint" = { fg = "green" }
 
 "diff.plus" = { fg = "green" }
 "diff.minus" = { fg = "red" }
@@ -66,16 +82,16 @@
 # ====================== COLORS ======================
 
 [palette]
-text = "#b5b2b0"
-text-subtle = "#4c4b49"
-text-highlight = "#a8968a"
+fg = "#b5b2b0"
+fg-subtle = "#4c4b49"
+fg-subtle-alt = "#302D2B"
 
-background = "#1c1917"
-background-subtle = "#252220"
-background-highlight = "#302D2B"
+bg = "#1c1917"
+bg-subtle = "#252220"
 
 red = "#a88a8a"
 yellow = "#a8a18a"
 green = "#8aa88a"
 blue = "#958aa8"
 magenta = "#a88aa6"
+orange = "#a8968a"
