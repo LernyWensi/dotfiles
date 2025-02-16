@@ -123,27 +123,11 @@ serialize_pane_viewport false
 scroll_buffer_size 10000
 
 simplified_ui false
-pane_frames true
+pane_frames false
 ui { 
     pane_frames { 
         rounded_corners true
     }
 }
 
-theme "futility"
-
-themes {
-    futility {
-        fg "#b3b3b3"
-        bg "#101010"
-        black "#101010"
-        red "#101010"
-        green "#747eb3"
-        magenta "#747eb3"
-        cyan "#b3b3b3"
-        white "#b3b3b3"
-        orange "#4d4d4d"
-        yellow "#747eb3"
-        blue "#747eb3"
-    }
-}
+theme "ansi"

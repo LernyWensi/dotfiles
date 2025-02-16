@@ -1,74 +1,87 @@
 # ====================== SYNTAX ======================
 
-"comment" = { fg = "text-subtle" }
+"comment" = { fg = "foreground-subtle" }
 
-"operator" = { fg = "blue" }
-"punctuation" = { fg = "blue" }
-"punctuation.bracket" = { fg = "text-subtle" }
+"operator" = { fg = "accent-2" }
+"punctuation" = { fg = "accent-2" }
+"punctuation.bracket" = { fg = "foreground-subtle" }
 
-"string" = { fg = "text-highlight" }
-"constant" = { fg = "green" }
-"constant.character" = { fg = "text-highlight" }
+"keyword" = { fg = "accent-3" }
+"constant" = { fg = "accent-3" }
 
-"keyword" = { fg = "text-highlight" }
+"string" = { fg = "accent-1", modifiers = ["italic"] }
+"constant.character" = { fg = "accent-1", modifiers = ["italic"] }
+"constant.character.escape" = { fg = "accent-3", modifiers = ["italic"] }
+
+# ====================== MARKUP ======================
+
+"markup.bold" = { fg = "accent-2", modifiers = ["bold"] }
+"markup.italic" = { fg = "accent-2", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "foreground-subtle", modifiers = ["crossed_out"] }
+
+"markup.heading" = { fg = "accent-1", bg = "background-highlight" }
+
+"markup.list" = { fg = "accent-1" }
+"markup.list.checked" = { fg = "foreground-subtle", modifiers = ["crossed_out"] }
+
+"markup.raw" = { bg = "background-highlight" }
+"markup.quote" = { fg = "foreground" }
+"markup.link" = { fg = "accent-3", underline = { style = "line" } }
 
 # ======================== UI ========================
 
-"ui.background" = { fg = "text-subtle", bg = "background" }
+"ui.background" = { fg = "foreground-subtle", bg = "background" }
+"ui.selection" = { bg = "background-subtle" }
 
-"ui.cursor" = { fg = "background", bg = "text-subtle" }
-"ui.cursor.match" = { fg = "text-highlight", bg = "background-highlight" }
-"ui.cursor.primary" = { fg = "background-highlight", bg = "text-highlight" }
-"ui.cursor.primary.select" = { fg = "background-subtle", bg = "text" }
+"ui.text" = { fg = "foreground" }
+"ui.text.focus" = { fg = "accent-1", bg = "background-subtle" }
 
-"ui.linenr.selected" = { fg = "text" }
+"ui.linenr.selected" = { fg = "accent-1" }
 
-"ui.statusline" = { fg = "text-highlight", bg = "background-subtle" }
-"ui.bufferline" = { fg = "text-subtle", bg = "background-subtle" }
-"ui.bufferline.active" = { fg = "text-highlight", bg = "background-highlight" }
+"ui.statusline" = { fg = "accent-1", bg = "background-subtle" }
+"ui.bufferline" = { fg = "foreground-subtle", bg = "background-subtle" }
+"ui.bufferline.active" = { fg = "accent-1", bg = "background-highlight" }
 
-"ui.popup" = { bg = "background-subtle" }
-"ui.picker.header.column.active" = { fg = "text-highlight" }
-"ui.help" = { fg = "text", bg = "background-subtle" }
+"ui.help" = { fg = "accent-1", bg = "background-subtle" }
+"ui.popup" = { fg = "accent-1", bg = "background-subtle" }
+"ui.menu" = { fg = "foreground", bg = "background-subtle" }
+"ui.menu.selected" = { fg = "accent-1", bg = "background-highlight" }
+"ui.menu.scroll" = { fg = "foreground", bg = "foreground-subtle" }
 
-"ui.text" = { fg = "text" }
-"ui.text.focus" = { fg = "text-highlight", bg = "background-highlight" }
+"ui.picker.header.column.active" = { fg = "accent-1" }
+
+"ui.cursor" = { fg = "background", bg = "foreground" }
+"ui.cursor.primary" = { fg = "background", bg = "accent-1" }
+"ui.cursor.match" = { bg = "background-highlight" }
 
 "ui.virtual.ruler" = { bg = "background-subtle" }
-"ui.virtual.whitespace" = { fg = "text-subtle" }
-"ui.virtual.indent-guide" = { fg = "text-subtle" }
-"ui.virtual.inlay-hint" = { fg = "text-subtle" }
-"ui.virtual.wrap" = { fg = "text-subtle" }
-"ui.virtual.jump-label" = { fg = "magenta" }
+"ui.virtual.whitespace" = { fg = "foreground-subtle" }
+"ui.virtual.indent-guide" = { fg = "foreground-subtle" }
+"ui.virtual.inlay-hint" = { fg = "foreground-subtle" }
+"ui.virtual.wrap" = { fg = "foreground-subtle" }
+"ui.virtual.jump-label" = { modifiers = ["reversed"] }
 
-"ui.menu" = { fg = "text", bg = "background-subtle" }
-"ui.menu.selected" = { fg = "text-highlight", bg = "background-highlight" }
-"ui.menu.scroll" = { fg = "text-subtle", bg = "background-subtle" }
+"diff.minus" = { fg = "red" }
+"diff.delta" = { fg = "yellow" }
+"diff.plus" = { fg = "green" }
 
-"ui.selection" = { bg = "background-subtle" }
+"error" = { fg = "red", modifiers = ["italic", "bold"] }
+"warning" = { fg = "yellow", modifiers = ["italic", "bold"] }
+"info" = { fg = "green", modifiers = ["italic", "bold"] }
+"hint" = { fg = "green", modifiers = ["italic", "bold"] }
 
 "diagnostic.error" = { underline = { color = "red", style = "curl" } }
 "diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
-"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
-"diagnostic.hint" = { underline = { color = "magenta", style = "curl" } }
+"diagnostic.info" = { underline = { color = "green", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "green", style = "curl" } }
 "diagnostic.unnecessary" = { modifiers = ["dim"] }
 "diagnostic.deprecated" = { modifiers = ["crossed_out"] }
-
-"error" = { fg = "red" }
-"warning" = { fg = "yellow" }
-"info" = { fg = "blue" }
-"hint" = { fg = "magenta" }
-
-"diff.plus" = { fg = "green" }
-"diff.minus" = { fg = "red" }
-"diff.delta" = { fg = "yellow" }
 
 # ====================== COLORS ======================
 
 [palette]
-text = "#b5b2b0"
-text-subtle = "#4c4b49"
-text-highlight = "#a8968a"
+foreground = "#b5b2b0"
+foreground-subtle = "#4c4b49"
 
 background = "#1c1917"
 background-subtle = "#252220"
@@ -77,5 +90,7 @@ background-highlight = "#302D2B"
 red = "#a88a8a"
 yellow = "#a8a18a"
 green = "#8aa88a"
-blue = "#958aa8"
-magenta = "#a88aa6"
+
+accent-1 = "#a8968a"
+accent-2 = "#958aa8"
+accent-3 = "#a88aa6"

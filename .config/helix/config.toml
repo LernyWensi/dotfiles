@@ -1,6 +1,6 @@
 # ====================== CONFIG ======================
 
-theme = "futility"
+theme = "blight"
 
 [editor]
 shell = ["fish", "-c"]
@@ -10,8 +10,8 @@ undercurl = true
 bufferline = "always"
 line-number = "relative"
 gutters = ["diff", "line-numbers", "spacer"]
-popup-border = "all"
 scrolloff = 15
+text-width = 80
 
 completion-timeout = 5
 completion-trigger-len = 1
@@ -36,6 +36,7 @@ center = []
 right = ["diagnostics", "primary-selection-length", "position"]
 
 [editor.soft-wrap]
+wrap-indicator = ""
 max-indent-retain = 0
 
 [editor.whitespace.characters]
@@ -135,6 +136,12 @@ h = ":toggle-option lsp.display-inlay-hints"
 w = ":toggle-option whitespace.render all none"
 g = ":toggle-option indent-guides.render"
 f = ":toggle-option auto-format"
+
+s = ":set soft-wrap.enable true"
+S = ":set soft-wrap.enable false"
+
+t = ":set soft-wrap.wrap-at-text-width true"
+T = ":set soft-wrap.wrap-at-text-width false"
 
 [keys.normal.l]
 r = ":lsp-restart"
