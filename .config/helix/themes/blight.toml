@@ -1,44 +1,61 @@
 # ====================== SYNTAX ======================
 
-"comment" = { fg = "foreground-subtle" }
+"comment" = { fg = "foreground-subtle", modifiers = ["italic"] }
+
+"namespace" = { fg = "accent-2", modifiers = ["bold"] }
+
+"type" = { fg = "accent-1" }
+"type.parameter" = { fg = "accent-2" }
+
+"keyword" = { fg = "accent-3" }
+"constant" = { fg = "accent-3" }
+"function" = { modifiers = ["bold"] }
+"constructor" = { modifiers = ["bold", "italic"] }
 
 "operator" = { fg = "accent-2" }
 "punctuation" = { fg = "accent-2" }
 "punctuation.bracket" = { fg = "foreground-subtle" }
 
-"keyword" = { fg = "accent-3" }
-"constant" = { fg = "accent-3" }
-
 "string" = { fg = "accent-1", modifiers = ["italic"] }
 "constant.character" = { fg = "accent-1", modifiers = ["italic"] }
 "constant.character.escape" = { fg = "accent-3", modifiers = ["italic"] }
 
+"tag" = { fg = "accent-3" }
+"attribute" = { fg = "accent-2" }
+
+"special" = { underline = { style = "line" } }
+
 # ====================== MARKUP ======================
+
+"markup.heading" = { fg = "accent-1", bg = "background-subtle" }
+
+"markup.link" = { fg = "accent-3", underline = { style = "line" } }
+"markup.quote" = { fg = "foreground" }
+"markup.raw" = { bg = "background-subtle" }
+
+"markup.list" = { fg = "accent-1" }
+"markup.list.checked" = { fg = "foreground-subtle", modifiers = ["crossed_out"] }
 
 "markup.bold" = { fg = "accent-2", modifiers = ["bold"] }
 "markup.italic" = { fg = "accent-2", modifiers = ["italic"] }
 "markup.strikethrough" = { fg = "foreground-subtle", modifiers = ["crossed_out"] }
 
-"markup.heading" = { fg = "accent-1", bg = "background-highlight" }
-
-"markup.list" = { fg = "accent-1" }
-"markup.list.checked" = { fg = "foreground-subtle", modifiers = ["crossed_out"] }
-
-"markup.raw" = { bg = "background-highlight" }
-"markup.quote" = { fg = "foreground" }
-"markup.link" = { fg = "accent-3", underline = { style = "line" } }
-
 # ======================== UI ========================
 
 "ui.background" = { fg = "foreground-subtle", bg = "background" }
-"ui.selection" = { bg = "background-subtle" }
+"ui.selection" = { bg = "background-highlight" }
 
 "ui.text" = { fg = "foreground" }
 "ui.text.focus" = { fg = "accent-1", bg = "background-subtle" }
+"ui.text.directory" = { fg = "accent-2" }
 
 "ui.linenr.selected" = { fg = "accent-1" }
 
 "ui.statusline" = { fg = "accent-1", bg = "background-subtle" }
+"ui.statusline.normal" = { fg = "background-subtle", bg = "accent-1" }
+"ui.statusline.insert" = { fg = "background-subtle", bg = "accent-2" }
+"ui.statusline.select" = { fg = "background-subtle", bg = "accent-3" }
+
 "ui.bufferline" = { fg = "foreground-subtle", bg = "background-subtle" }
 "ui.bufferline.active" = { fg = "accent-1", bg = "background-highlight" }
 
@@ -50,16 +67,18 @@
 
 "ui.picker.header.column.active" = { fg = "accent-1" }
 
-"ui.cursor" = { fg = "background", bg = "foreground" }
-"ui.cursor.primary" = { fg = "background", bg = "accent-1" }
-"ui.cursor.match" = { bg = "background-highlight" }
+"ui.cursor" = { fg = "background", bg = "foreground-subtle" }
+"ui.cursor.match" = { bg = "background-subtle" }
+"ui.cursor.primary.normal" = { fg = "background", bg = "accent-1" }
+"ui.cursor.primary.insert" = { fg = "background", bg = "accent-2" }
+"ui.cursor.primary.select" = { fg = "background", bg = "accent-3" }
 
 "ui.virtual.ruler" = { bg = "background-subtle" }
-"ui.virtual.whitespace" = { fg = "foreground-subtle" }
-"ui.virtual.indent-guide" = { fg = "foreground-subtle" }
+"ui.virtual.indent-guide" = { fg = "foreground-elusive" }
+"ui.virtual.whitespace" = { fg = "foreground-elusive" }
+"ui.virtual.wrap" = { fg = "foreground-elusive" }
 "ui.virtual.inlay-hint" = { fg = "foreground-subtle" }
-"ui.virtual.wrap" = { fg = "foreground-subtle" }
-"ui.virtual.jump-label" = { modifiers = ["reversed"] }
+"ui.virtual.jump-label" = { fg = "accent-3", bg = "background-subtle" }
 
 "diff.minus" = { fg = "red" }
 "diff.delta" = { fg = "yellow" }
@@ -81,11 +100,12 @@
 
 [palette]
 foreground = "#b5b2b0"
-foreground-subtle = "#4c4b49"
+foreground-subtle = "#4f4c4a"
+foreground-elusive = "#353331"
 
 background = "#1c1917"
-background-subtle = "#252220"
-background-highlight = "#302D2B"
+background-subtle = "#2a2522"
+background-highlight = "#38322e"
 
 red = "#a88a8a"
 yellow = "#a8a18a"
