@@ -10,10 +10,11 @@ keybinds clear-defaults=true {
         bind "alt e" { EditScrollback; SwitchToMode "locked"; }
         bind "alt z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         bind "alt t" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
-        
+
+        bind "alt shift p" { TogglePanePinned; SwitchToMode "locked"; }
         bind "alt shift t" { BreakPane; SwitchToMode "locked"; }
-        bind "alt shift pagedown" { BreakPaneRight; SwitchToMode "locked"; }
-        bind "alt shift pageup" { BreakPaneLeft; SwitchToMode "locked"; }
+        bind "alt shift left" { BreakPaneRight; SwitchToMode "locked"; }
+        bind "alt shift right" { BreakPaneLeft; SwitchToMode "locked"; }
 
         bind "alt left" { MoveFocus "left"; }
         bind "alt down" { MoveFocus "down"; }
@@ -110,10 +111,12 @@ keybinds clear-defaults=true {
 }
 
 on_force_close "quit"
+show_startup_tips false
 
 mouse_mode true
-copy_on_select false
+copy_on_select true
 
+stacked-resize true
 auto_layout true
 default_layout "compact"
 default_mode "locked"
@@ -124,8 +127,8 @@ scroll_buffer_size 10000
 
 simplified_ui false
 pane_frames false
-ui { 
-    pane_frames { 
+ui {
+    pane_frames {
         rounded_corners true
     }
 }
