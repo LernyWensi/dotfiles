@@ -4,7 +4,7 @@ local config = wezterm.config_builder()
 -- Environment
 config.default_domain = 'WSL:Ubuntu'
 
--- Animations
+-- Front-end
 config.front_end = 'WebGpu'
 webgpu_power_preference = 'HighPerformance'
 
@@ -92,18 +92,15 @@ config.use_fancy_tab_bar = false
 config.tab_max_width = 500
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-    local index = tab.tab_index + 1
-    local title = tab.tab_title == '' and 'tab' or tab.tab_title
-    -- return { { Text = ' ' .. index .. ':' .. title .. ' ' }, }
     return {
         { Foreground = { Color = '#a88aa6' } },
-        { Text = ' ' .. index },
+        { Text = ' ' .. (tab.tab_index + 1) },
 
         { Foreground = { Color = '#b5b2b0' } },
         { Text = ':' },
 
         'ResetAttributes',
-        { Text = title .. ' ' },
+        { Text = (tab.tab_title == '' and 'tab' or tab.tab_title) .. ' ' },
     }
 end)
 
