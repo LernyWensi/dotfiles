@@ -1,3 +1,6 @@
+[manager]
+ratio = [2, 3, 3]
+
 [[plugin.prepend_fetchers]]
 id = "git"
 name = "*"
