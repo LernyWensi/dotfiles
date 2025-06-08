@@ -1,0 +1,20 @@
+inherits = "blight"
+
+# ====================== COLORS ======================
+
+[palette]
+foreground = '#4f4c4a'
+foreground-subtle = '#b5b2b0'
+foreground-elusive = '#ceccca'
+
+background = '#e8e5e3'
+background-subtle = '#ddd8d5'
+background-highlight = '#d1cbc7'
+
+red = '#b87a7a'
+yellow = '#b8a97a'
+green = '#7ab87a'
+
+accent-1 = '#b8937a'
+accent-2 = '#917ab8'
+accent-3 = '#b87ab4'

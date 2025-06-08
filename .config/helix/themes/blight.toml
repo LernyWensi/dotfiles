@@ -2,35 +2,38 @@
 
 'comment' = { fg = 'foreground-subtle', modifiers = ['italic'] }
 
+'keyword' = { fg = 'accent-3' }
 'namespace' = { fg = 'accent-2', modifiers = ['bold'] }
+'constant' = { fg = 'accent-3' }
+'variable' = { fg = 'foreground', modifiers = ['italic'] }
+'function' = { fg = 'foreground', modifiers = ['bold'] }
+'constructor' = { fg = 'foreground', modifiers = ['bold', 'italic'] }
 
 'type' = { fg = 'accent-1' }
 'type.parameter' = { fg = 'accent-2' }
-
-'keyword' = { fg = 'accent-3' }
-'constant' = { fg = 'accent-3' }
-'function' = { modifiers = ['bold'] }
+'type.enum.variant' = { fg = 'accent-2' }
 
 'operator' = { fg = 'accent-2' }
-'punctuation' = { fg = 'accent-2' }
+'punctuation' = { fg = 'accent-3' }
 'punctuation.bracket' = { fg = 'foreground-subtle' }
+'punctuation.special' = { fg = 'accent-3' }
 
 'string' = { fg = 'accent-1', modifiers = ['italic'] }
-'constructor' = { modifiers = ['bold', 'italic'] }
 'constant.character' = { fg = 'accent-1', modifiers = ['italic'] }
 'constant.character.escape' = { fg = 'accent-3', modifiers = ['italic'] }
 
 'tag' = { fg = 'accent-3' }
 'attribute' = { fg = 'accent-2' }
 
-'special' = { underline = { style = 'line' } }
+'label' = { fg = 'accent-2' }
+'special' = { fg = 'accent-2', underline = { style = 'line' } }
 
 # ====================== MARKUP ======================
 
 'markup.heading' = { fg = 'accent-1', bg = 'background-subtle' }
 
 'markup.link' = { fg = 'accent-3', underline = { style = 'line' } }
-'markup.quote' = { fg = 'foreground' }
+'markup.quote' = { fg = 'accent-3', modifiers = ['italic'] }
 'markup.raw' = { bg = 'background-subtle' }
 
 'markup.list' = { fg = 'accent-1' }
@@ -68,8 +71,8 @@
 'ui.picker.header.column.active' = { fg = 'accent-1' }
 
 'ui.cursor' = { fg = 'background', bg = 'foreground-subtle' }
-'ui.cursor.match' = { bg = 'background-subtle' }
-'ui.cursor.primary.normal' = { fg = 'background', bg = 'accent-1' }
+'ui.cursor.match' = { fg = 'background', bg = 'foreground', modifiers = ['bold'] }
+'ui.cursor.primary.normal' = { fg = 'background', bg = 'accent-1', modifiers = ['bold'] }
 'ui.cursor.primary.insert' = { fg = 'background', bg = 'accent-2' }
 'ui.cursor.primary.select' = { fg = 'background', bg = 'accent-3' }
 
@@ -78,7 +81,10 @@
 'ui.virtual.whitespace' = { fg = 'foreground-elusive' }
 'ui.virtual.wrap' = { fg = 'foreground-elusive' }
 'ui.virtual.inlay-hint' = { fg = 'foreground-subtle' }
-'ui.virtual.jump-label' = { fg = 'accent-3', bg = 'background-subtle' }
+'ui.virtual.jump-label' = { fg = 'accent-3', bg = 'background-subtle', underline = { style = 'line' }, modifiers = [
+    'bold',
+    'italic',
+] }
 
 'diff.minus' = { fg = 'red' }
 'diff.delta' = { fg = 'yellow' }
