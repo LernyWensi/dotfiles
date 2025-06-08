@@ -4,6 +4,16 @@ local config = wezterm.config_builder()
 -- Environment
 config.default_domain = 'WSL:Ubuntu'
 
+-- Bells
+config.audible_bell = "Disabled"
+
+config.visual_bell = {
+  fade_in_function = 'EaseIn',
+  fade_in_duration_ms = 150,
+  fade_out_function = 'EaseOut',
+  fade_out_duration_ms = 150,
+}
+
 -- Front-end
 config.front_end = 'WebGpu'
 webgpu_power_preference = 'HighPerformance'
@@ -12,81 +22,29 @@ config.max_fps = 144
 config.animation_fps = 144
 
 -- Theme
-config.colors = {
-    foreground = '#b5b2b0',
-    background = '#1c1917',
-
-    cursor_bg = '#a8968a',
-    cursor_fg = '#1c1917',
-    cursor_border = '#a8968a',
-
-    selection_fg = 'none',
-    selection_bg = '#38322e',
-
-    scrollbar_thumb = '#4f4c4a',
-
-    split = '#2a2522',
-
-    ansi = { '#2a2522', '#a88a8a', '#8aa88a', '#a8a18a', '#958aa8', '#a88aa6', '#a88aa6', '#b5b2b0' },
-    brights = { '#4f4c4a', '#a88a8a', '#8aa88a', '#a8a18a', '#958aa8', '#a88aa6', '#a88aa6', '#b5b2b0' },
-
-    compose_cursor = '#958aa8',
-
-    copy_mode_active_highlight_bg = { Color = '#38322e' },
-    copy_mode_active_highlight_fg = { Color = '#a8968a' },
-    copy_mode_inactive_highlight_bg = { Color = '#2a2522' },
-    copy_mode_inactive_highlight_fg = { Color = '#4f4c4a' },
-
-    quick_select_match_bg = { Color = '#38322e' },
-    quick_select_match_fg = { Color = '#a8968a' },
-    quick_select_label_bg = { Color = '#2a2522' },
-    quick_select_label_fg = { Color = '#a88aa6' },
-
-    input_selector_label_bg = { Color = '#38322e' },
-    input_selector_label_fg = { Color = '#a8968a' },
-
-    tab_bar = {
-        background = '#2a2522',
-
-        active_tab = {
-            bg_color = '#38322e',
-            fg_color = '#a8968a',
-        },
-
-        inactive_tab = {
-            bg_color = '#2a2522',
-            fg_color = '#4f4c4a',
-        },
-
-        inactive_tab_hover = {
-            bg_color = '#1c1917',
-            fg_color = '#b5b2b0',
-        },
-    },
-}
+config.colors = require("themes.ornament")
 
 -- Font
 config.font = wezterm.font_with_fallback {
-    { family = 'Iosevka Term', harfbuzz_features = { 'calt=0' } } ,
+    { family = 'Iosevka Term', harfbuzz_features = { 'calt=1' }, weight = 'Regular' } ,
     { family = 'Symbols Nerd Font Mono', scale = 0.7 },
 }
 
-config.font_size = 18
-config.line_height = 1.6
+config.font_size = 16
+config.line_height = 1
 
 config.underline_thickness = 2
-config.underline_position = -10
+config.underline_position = -4
 
 config.command_palette_font = wezterm.font('Iosevka Term')
-config.command_palette_font_size = 18
+config.command_palette_font_size = 16
 
 -- Window
 config.window_decorations = 'RESIZE'
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
 -- Bar
-config.tab_bar_at_bottom = false
-config.show_close_tab_button_in_tabs = false
+config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
 config.use_fancy_tab_bar = false
 config.tab_max_width = 500
@@ -119,7 +77,7 @@ wezterm.on('update-right-status', function(window, pane)
         { Text = ' :: ' },
 
         { Foreground = { Color = '#a8968a' } },
-        { Text = wezterm.strftime '%Y-%m-%d '  },
+        { Text = wezterm.strftime '%A,%e %B, %Y '  },
     })
 end)
 
@@ -133,10 +91,11 @@ config.cursor_blink_ease_out = 'EaseOut'
 
 -- Keybindigs
 config.disable_default_key_bindings = true
-config.disable_default_mouse_bindings = true
-
 config.leader = { key = 'Space', mods = 'CTRL' }
 config.keys = {
+    -- Debug
+    { key = 'l', mods = 'LEADER', action = wezterm.action.ShowDebugOverlay },
+
     -- Launcher
     { key = 'Space', mods = 'LEADER', action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|DOMAINS|COMMANDS' , fuzzy_help_text = '> ' } },
 
@@ -170,13 +129,13 @@ config.keys = {
     -- Selections
     { key = 'g', mods = 'LEADER', action = wezterm.action.QuickSelect },
     { key = 'u', mods = 'LEADER', action = wezterm.action.QuickSelectArgs {
-        label = 'Open URL',
-        patterns = { 'https?://\\S+' },
-        skip_action_on_paste = true,
-        action = wezterm.action_callback(function(window, pane)
-            local url = window:get_selection_text_for_pane(pane)
-            wezterm.open_with(url)
-        end),
+            label = 'Open URL',
+            patterns = { 'https?://\\S+' },
+            skip_action_on_paste = true,
+            action = wezterm.action_callback(function(window, pane)
+                local url = window:get_selection_text_for_pane(pane)
+                wezterm.open_with(url)
+            end),
         },
     },
 
@@ -191,11 +150,11 @@ config.keys = {
     { key = 't', mods = 'LEADER', action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
     { key = 'q', mods = 'LEADER|SHIFT', action = wezterm.action.CloseCurrentTab { confirm = true } },
 
-    { key = '[', mods = 'LEADER', action = wezterm.action.MoveTabRelative(-1) },
-    { key = ']', mods = 'LEADER', action = wezterm.action.MoveTabRelative(1) },
+    { key = '[', mods = 'ALT', action = wezterm.action.MoveTabRelative(-1) },
+    { key = ']', mods = 'ALT', action = wezterm.action.MoveTabRelative(1) },
 
     { key = 'n', mods = 'LEADER', action = wezterm.action.ShowTabNavigator },
-    { key = 'a', mods = 'LEADER', action = wezterm.action.ActivateLastTab },
+    { key = 'a', mods = 'ALT', action = wezterm.action.ActivateLastTab },
 
     { key = 'PageUp', mods = 'ALT', action = wezterm.action.ActivateTabRelativeNoWrap(-1) },
     { key = 'PageDown', mods = 'ALT', action = wezterm.action.ActivateTabRelativeNoWrap(1) },
@@ -205,6 +164,10 @@ config.keys = {
     { key = '3', mods = 'ALT', action = wezterm.action.ActivateTab(2) },
     { key = '4', mods = 'ALT', action = wezterm.action.ActivateTab(3) },
     { key = '5', mods = 'ALT', action = wezterm.action.ActivateTab(4) },
+    { key = '6', mods = 'ALT', action = wezterm.action.ActivateTab(5) },
+    { key = '7', mods = 'ALT', action = wezterm.action.ActivateTab(6) },
+    { key = '8', mods = 'ALT', action = wezterm.action.ActivateTab(7) },
+    { key = '9', mods = 'ALT', action = wezterm.action.ActivateTab(8) },
 
     { key = 'r', mods = 'LEADER', action = wezterm.action.PromptInputLine {
             description = 'Enter new name for tab',
@@ -221,7 +184,7 @@ config.keys = {
     { key = 'v', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
     { key = 'q', mods = 'LEADER', action = wezterm.action.CloseCurrentPane { confirm = false } },
 
-    { key = 'z', mods = 'LEADER', action = wezterm.action.TogglePaneZoomState },
+    { key = 'z', mods = 'ALT', action = wezterm.action.TogglePaneZoomState },
     { key = 'b', mods = 'LEADER', action = wezterm.action.PaneSelect { mode = 'MoveToNewTab' } },
     { key = '/', mods = 'LEADER', action = wezterm.action.RotatePanes 'Clockwise' },
 
@@ -229,7 +192,7 @@ config.keys = {
             local tab = pane:tab()
             local panes = tab:panes_with_info()
             if #panes == 1 then
-                pane:split()
+                pane:split { direction = 'Bottom', top_level = true }
             elseif not panes[1].is_zoomed then
                 panes[1].pane:activate()
                 tab:set_zoomed(true)
@@ -254,16 +217,13 @@ config.keys = {
     { key = 'UpArrow', mods = 'ALT|CTRL', action = wezterm.action.AdjustPaneSize { 'Up', 3 } },
 
     -- Scroll
-    { key = 'UpArrow', mods = 'ALT|SHIFT', action = wezterm.action.ScrollByLine(-1) },
-    { key = 'DownArrow', mods = 'ALT|SHIFT', action = wezterm.action.ScrollByLine(1) },
+    { key = 'UpArrow', mods = 'SHIFT', action = wezterm.action.ScrollByLine(-1) },
+    { key = 'DownArrow', mods = 'SHIFT', action = wezterm.action.ScrollByLine(1) },
 
-    { key = 'PageUp', mods = 'ALT|SHIFT', action = wezterm.action.ScrollByPage(-0.5) },
-    { key = 'PageDown', mods = 'ALT|SHIFT', action = wezterm.action.ScrollByPage(0.5) },
+    { key = 'PageUp', mods = 'SHIFT', action = wezterm.action.ScrollByPage(-0.5) },
+    { key = 'PageDown', mods = 'SHIFT', action = wezterm.action.ScrollByPage(0.5) },
 
-    -- Copy/Paste
-    { key = 'c', mods = 'CTRL|SHIFT', action = wezterm.action.CopyTo 'Clipboard' },
-    { key = 'v', mods = 'CTRL|SHIFT', action = wezterm.action.PasteFrom 'Clipboard' },
-
+    -- Copy / Paste
     { key = 'c', mods = 'CTRL', action = wezterm.action_callback(function(window, pane)
             local has_selection = window:get_selection_text_for_pane(pane) ~= ''
             if has_selection then
@@ -272,6 +232,13 @@ config.keys = {
             else
                 window:perform_action(wezterm.action.SendKey { key = 'c', mods = 'CTRL' }, pane)
             end
+        end),
+    },
+    { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' },
+
+    -- Shell
+    { key = 'c', mods = 'CTRL|SHIFT', action = wezterm.action_callback(function(window, pane)
+            window:perform_action(wezterm.action.SendKey { key = 'x', mods = 'CTRL' }, pane)
         end),
     },
 }
@@ -291,12 +258,12 @@ config.key_tables = {
     },
 
     copy_mode = {
-        { key = 'Escape', mods = 'NONE', action = wezterm.action.Multiple { 'ScrollToBottom', { CopyMode =  'Close' } } },
+        { key = 'Escape', mods = 'NONE', action = wezterm.action.Multiple { 'ScrollToBottom', { CopyMode = 'Close' } } },
 
-        { key = 'Space', mods = 'NONE', action = wezterm.action.CopyMode { SetSelectionMode =  'Cell' } },
-        { key = 'v', mods = 'NONE', action = wezterm.action.CopyMode { SetSelectionMode =  'Cell' } },
-        { key = 'v', mods = 'CTRL', action = wezterm.action.CopyMode { SetSelectionMode =  'Block' } },
-        { key = 'v', mods = 'SHIFT', action = wezterm.action.CopyMode { SetSelectionMode =  'Line' } },
+        { key = 'Space', mods = 'NONE', action = wezterm.action.CopyMode { SetSelectionMode = 'Cell' } },
+        { key = 'v', mods = 'NONE', action = wezterm.action.CopyMode { SetSelectionMode = 'Cell' } },
+        { key = 'v', mods = 'CTRL', action = wezterm.action.CopyMode { SetSelectionMode = 'Block' } },
+        { key = 'v', mods = 'SHIFT', action = wezterm.action.CopyMode { SetSelectionMode = 'Line' } },
 
         { key = 'o', mods = 'NONE', action = wezterm.action.CopyMode 'MoveToSelectionOtherEnd' },
         { key = 'o', mods = 'SHIFT', action = wezterm.action.CopyMode 'MoveToSelectionOtherEndHoriz' },
@@ -319,9 +286,9 @@ config.key_tables = {
         { key = 'g', mods = 'NONE', action = wezterm.action.CopyMode 'MoveToScrollbackTop' },
         { key = 'g', mods = 'SHIFT', action = wezterm.action.CopyMode 'MoveToScrollbackBottom' },
 
-        { key = 'H', mods = 'NONE', action = wezterm.action.CopyMode 'MoveToViewportTop' },
-        { key = 'L', mods = 'NONE', action = wezterm.action.CopyMode 'MoveToViewportBottom' },
-        { key = 'M', mods = 'NONE', action = wezterm.action.CopyMode 'MoveToViewportMiddle' },
+        { key = 'h', mods = 'SHIFT', action = wezterm.action.CopyMode 'MoveToViewportTop' },
+        { key = 'l', mods = 'SHIFT', action = wezterm.action.CopyMode 'MoveToViewportBottom' },
+        { key = 'm', mods = 'SHIFT', action = wezterm.action.CopyMode 'MoveToViewportMiddle' },
 
         { key = 'd', mods = 'CTRL', action = wezterm.action.CopyMode { MoveByPage = (0.5) } },
         { key = 'u', mods = 'CTRL', action = wezterm.action.CopyMode { MoveByPage = (-0.5) } },
@@ -339,12 +306,13 @@ config.key_tables = {
 
         { key = 'y', mods = 'NONE', action = wezterm.action.Multiple {
                 { CopyTo = 'ClipboardAndPrimarySelection' },
-                { Multiple = { 'ScrollToBottom', { CopyMode =  'Close' } } }
+                { Multiple = { 'ScrollToBottom', { CopyMode = 'Close' } } }
             },
         },
     },
 }
 
+config.disable_default_mouse_bindings = true
 config.mouse_bindings = {
     -- Copying
     { event = { Down = { streak = 1, button = 'Left' } }, mods = 'NONE', action = wezterm.action.SelectTextAtMouseCursor('Cell') },
