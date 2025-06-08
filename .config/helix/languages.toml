@@ -1,5 +1,11 @@
 # ================ LANGUAGES ================
 
+# Fish
+[[language]]
+name = 'fish'
+language-servers = ['harper-ls']
+auto-format = false
+
 # Rust
 [[language]]
 name = 'rust'
@@ -152,7 +158,7 @@ cabalFormattingProvider = 'cabal-gild'
 
 [language-server.haskell-language-server.config.plugin]
 fourmolu.config.external = true
-rename.onfig.crossModule = true
+rename.config.crossModule = true
 hlint.config.flags = [
     '--with-group=future',
     '--with-group=extra',
@@ -245,24 +251,25 @@ markdown.preview.serveStatic = true
 markdown.preview.browser = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'
 
 # tinymist
-[language-server.tinymist]
-command = 'tinymist'
-
 [language-server.tinymist.config]
+exportPdf = 'onType'
 outputPath = '$dir/dist/$name'
 
-exportPdf = 'onType'
-lint = { when = 'onType' }
-
-completion.triggerOnSnippetPlaceholders = true
-
 formatterMode = 'typstyle'
-formatterPrintWidth = '120'
 formatterIndentSize = 4
+formatterPrintWidth = 120
+
+[language-server.tinymist.config.lint]
+enabled = true
+when = 'onType'
 
 [language-server.tinymist.config.preview]
 cursorIndicator = true
-browsing.args = ['--data-plane-host=127.0.0.1:23626', '--invert-colors=auto', '--open']
+scrollSync = 'onSelectionChange'
+
+[language-server.tinymist.config.preview.background]
+enabled = true
+args = ['--data-plane-host=127.0.0.1:23626', '--invert-colors=never', '--open']
 
 # tailwindcss-ls
 [language-server.tailwindcss-ls]

@@ -1,22 +1,18 @@
 # ====================== CONFIG ======================
 
-theme = 'blight'
+theme = 'ornament'
 
 [editor]
 shell = ['fish', '-c']
 
 idle-timeout = 100
 
-mouse = true
-middle-click-paste = false
-
 true-color = true
 undercurl = true
 color-modes = true
+bufferline = "always"
 line-number = 'relative'
 gutters = ['spacer', 'diff']
-scrolloff = 15
-text-width = 120
 
 jump-label-alphabet = 'shtareniwfdolubjcpmxqgyzvk'
 
@@ -32,18 +28,22 @@ trim-trailing-whitespace = true
 
 [editor.inline-diagnostics]
 cursor-line = 'hint'
-other-lines = 'disable'
 
 [editor.statusline]
 diagnostics = ['hint', 'warning', 'error']
 workspace-diagnostics = ['hint', 'warning', 'error']
 
+separator = '::'
 left = ['file-name', 'diagnostics', 'file-modification-indicator', 'spacer']
-right = ['spinner', 'spacer', 'selections', 'primary-selection-length', 'position', 'total-line-numbers']
+right = ['spinner', 'spacer', 'selections', 'separator', 'primary-selection-length', 'separator', 'position', 'separator', 'total-line-numbers']
 
 [editor.soft-wrap]
 wrap-indicator = '↪ '
 max-indent-retain = 0
+
+[editor.indent-guides]
+render = true
+character = '▏'
 
 [editor.whitespace.characters]
 newline = '↩'
@@ -51,8 +51,10 @@ newline = '↩'
 [editor.file-picker]
 hidden = false
 
+[editor.search]
+wrap-around = false
+
 [editor.lsp]
-snippets = false
 auto-signature-help = false
 display-progress-messages = true
 
@@ -66,62 +68,82 @@ A-k = 'signature_help'
 
 ret = 'goto_word'
 
-x = 'select_line_below'
-X = 'select_line_above'
+A-e = 'move_next_sub_word_end'
+A-w = 'move_next_sub_word_start'
+A-b = 'move_prev_sub_word_start'
 
 tab = 'move_parent_node_end'
 S-tab = 'move_parent_node_start'
 
-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
+x = 'select_line_below'
+X = 'select_line_above'
+
+C-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
+C-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
 
 C-d = ['page_cursor_half_down', 'align_view_center']
 C-u = ['page_cursor_half_up', 'align_view_center']
-
-C-pagedown = ':buffer-next'
-C-pageup = ':buffer-previous'
-
-A-e = 'move_next_sub_word_end'
-A-w = 'move_next_sub_word_start'
-A-b = 'move_prev_sub_word_start'
 
 C-up = 'jump_view_up'
 C-down = 'jump_view_down'
 C-left = 'jump_view_left'
 C-right = 'jump_view_right'
 
-C-S-up = 'swap_view_up'
-C-S-left = 'swap_view_left'
-C-S-down = 'swap_view_down'
-C-S-right = 'swap_view_right'
+C-pagedown = ':buffer-next'
+C-pageup = ':buffer-previous'
+
+[keys.normal.space.w]
+S-up = 'swap_view_up'
+S-left = 'swap_view_left'
+S-down = 'swap_view_down'
+S-right = 'swap_view_right'
+
+[keys.normal."'"]
+f = 'goto_file_vsplit'
+d = ['vsplit', 'goto_definition']
+D = ['vsplit', 'goto_declaration']
+y = ['vsplit', 'goto_type_definition']
+i = ['vsplit', 'goto_implementation']
+r = ['vsplit', 'goto_reference']
+
+[keys.normal.'"']
+f = 'goto_file_hsplit'
+d = ['hsplit', 'goto_definition']
+D = ['hsplit', 'goto_declaration']
+y = ['hsplit', 'goto_type_definition']
+i = ['hsplit', 'goto_implementation']
+r = ['hsplit', 'goto_reference']
 
 [keys.normal.backspace]
-backspace = ':buffer-close'
+c = ':buffer-close'
+C = ':buffer-close!'
+
 o = ':buffer-close-others'
+O = ':buffer-close-others!'
 
 [keys.normal.C-y]
-y = ':sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk "NR==2{print $7}") open > /dev/null'
-Y = ':sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk "NR==2{print $7}") open zoom > /dev/null'
+y = ":sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') open > /dev/null"
+Y = ":sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') open zoom > /dev/null"
 
-v = ':sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk "NR==2{print $7}") vsplit > /dev/null'
-V = ':sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk "NR==2{print $7}") vsplit zoom > /dev/null'
+v = ":sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') vsplit > /dev/null"
+V = ":sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') vsplit zoom > /dev/null"
 
-s = ':sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk "NR==2{print $7}") hsplit > /dev/null'
-S = ':sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk "NR==2{print $7}") hsplit zoom > /dev/null'
+s = ":sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') hsplit > /dev/null"
+S = ":sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') hsplit zoom > /dev/null"
 
 # =============== KEYBINDINGS (SELECT) ===============
 
 [keys.select]
-ret = 'goto_word'
-
-x = 'select_line_below'
-X = 'select_line_above'
+ret = 'extend_to_word'
 
 tab = 'extend_parent_node_end'
 S-tab = 'extend_parent_node_start'
 
-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
+x = 'select_line_below'
+X = 'select_line_above'
+
+C-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
+C-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
 
 C-d = ['page_cursor_half_down', 'align_view_center']
 C-u = ['page_cursor_half_up', 'align_view_center']
@@ -132,6 +154,9 @@ C-u = ['page_cursor_half_up', 'align_view_center']
 A-k = 'signature_help'
 
 S-tab = 'move_parent_node_start'
+
+C-h = "delete_word_backward"
+C-del = "delete_word_forward"
 
 up = 'no_op'
 down = 'no_op'
@@ -160,8 +185,7 @@ S = ':set soft-wrap.enable false'
 t = ':set soft-wrap.wrap-at-text-width true'
 T = ':set soft-wrap.wrap-at-text-width false'
 
-'i' = ':set rulers [120]'
-'I' = ':set rulers []'
+'i' = ':toggle-option rulers [] [80, 120]'
 
 [keys.normal.l]
 r = ':lsp-restart'
