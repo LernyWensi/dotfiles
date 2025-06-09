@@ -50,13 +50,7 @@ auto-format = true
 # JSX
 [[language]]
 name = 'jsx'
-language-servers = [
-    'typescript-language-server',
-    'vscode-eslint-language-server',
-    'tailwindcss-ls',
-    'emmet-lsp',
-    'harper-ls',
-]
+language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'tailwindcss-ls', 'emmet-lsp', 'harper-ls']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
@@ -72,13 +66,7 @@ auto-format = true
 # TSX
 [[language]]
 name = 'tsx'
-language-servers = [
-    'typescript-language-server',
-    'vscode-eslint-language-server',
-    'tailwindcss-ls',
-    'emmet-lsp',
-    'harper-ls',
-]
+language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'tailwindcss-ls', 'emmet-lsp', 'harper-ls']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
@@ -136,13 +124,7 @@ soft-wrap.enable = true
 
 [[language]]
 name = 'git-config'
-file-types = [
-    { glob = '.gitmodules' },
-    { glob = '.gitconfig.local' },
-    { glob = '.gitconfig' },
-    { glob = '.git/config' },
-    { glob = '.config/git/config' },
-]
+file-types = [{ glob = '.gitmodules' }, { glob = '.gitconfig.local' }, { glob = '.gitconfig' }, { glob = '.git/config' }, { glob = '.config/git/config' }]
 
 [[language]]
 name = 'git-commit'
@@ -210,7 +192,6 @@ files.watcher = 'server'
 [language-server.rust-analyzer.config.check]
 features = 'all'
 command = 'clippy'
-extraArgs = ['--', '-W', 'clippy::nursery']
 
 [language-server.rust-analyzer.config.rustfmt]
 extraArgs = ['+nightly']
