@@ -224,7 +224,7 @@ config.keys = {
     { key = 'PageDown', mods = 'SHIFT', action = wezterm.action.ScrollByPage(0.5) },
 
     -- Copy / Paste
-    { key = 'c', mods = 'CTRL', action = wezterm.action_callback(function(window, pane)
+    { key = 'c', mods = 'CTRL|SHIFT', action = wezterm.action_callback(function(window, pane)
             local has_selection = window:get_selection_text_for_pane(pane) ~= ''
             if has_selection then
                 window:perform_action(wezterm.action.CopyTo 'Clipboard', pane)
@@ -234,13 +234,7 @@ config.keys = {
             end
         end),
     },
-    { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' },
-
-    -- Shell
-    { key = 'c', mods = 'CTRL|SHIFT', action = wezterm.action_callback(function(window, pane)
-            window:perform_action(wezterm.action.SendKey { key = 'x', mods = 'CTRL' }, pane)
-        end),
-    },
+    { key = 'v', mods = 'CTRL|SHIFT', action = wezterm.action.PasteFrom 'Clipboard' },
 }
 
 config.key_tables = {
