@@ -77,7 +77,7 @@ wezterm.on('update-right-status', function(window, pane)
         { Text = ' :: ' },
 
         { Foreground = { Color = '#a8968a' } },
-        { Text = wezterm.strftime '%A,%e %B, %Y '  },
+        { Text = wezterm.strftime '%A, %e %B, %Y '  },
     })
 end)
 
