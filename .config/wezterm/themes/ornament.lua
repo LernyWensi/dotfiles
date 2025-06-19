@@ -2,9 +2,9 @@ return {
     foreground = '#4f4c4a',
     background = '#e8e5e3',
 
-    cursor_bg = '#b8937a',
+    cursor_bg = 'c7906b',
     cursor_fg = '#e8e5e3',
-    cursor_border = '#b8937a',
+    cursor_border = 'c7906b',
 
     selection_fg = 'none',
     selection_bg = '#d1cbc7',
@@ -15,30 +15,30 @@ return {
 
     visual_bell = '#d1cbc7',
 
-    ansi = { '#ddd8d5', '#b87a7a', '#7ab87a', '#b8a97a', '#917ab8', '#b87ab4', '#b87ab4', '#4f4c4a' },
-    brights = { '#b5b2b0', '#b87a7a', '#7ab87a', '#b8a97a', '#917ab8', '#b87ab4', '#b87ab4', '#4f4c4a' },
+    ansi = { '#ddd8d5', '#b87a7a', '#7ab87a', '#b8a97a', '8d6bc7', 'c76bc1', 'c76bc1', '#4f4c4a' },
+    brights = { '#b5b2b0', '#b87a7a', '#7ab87a', '#b8a97a', '8d6bc7', 'c76bc1', 'c76bc1', '#4f4c4a' },
 
-    compose_cursor = '#917ab8',
+    compose_cursor = '8d6bc7',
 
     copy_mode_active_highlight_bg = { Color = '#d1cbc7' },
-    copy_mode_active_highlight_fg = { Color = '#b8937a' },
+    copy_mode_active_highlight_fg = { Color = 'c7906b' },
     copy_mode_inactive_highlight_bg = { Color = '#ddd8d5' },
     copy_mode_inactive_highlight_fg = { Color = '#b5b2b0' },
 
     quick_select_match_bg = { Color = '#d1cbc7' },
-    quick_select_match_fg = { Color = '#b8937a' },
+    quick_select_match_fg = { Color = 'c7906b' },
     quick_select_label_bg = { Color = '#ddd8d5' },
-    quick_select_label_fg = { Color = '#b87ab4' },
+    quick_select_label_fg = { Color = 'c76bc1' },
 
     input_selector_label_bg = { Color = '#d1cbc7' },
-    input_selector_label_fg = { Color = '#b8937a' },
+    input_selector_label_fg = { Color = 'c7906b' },
 
     tab_bar = {
         background = '#ddd8d5',
 
         active_tab = {
             bg_color = '#d1cbc7',
-            fg_color = '#b8937a',
+            fg_color = 'c7906b',
         },
 
         inactive_tab = {

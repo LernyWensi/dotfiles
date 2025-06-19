@@ -26,7 +26,7 @@ config.colors = require("themes.ornament")
 
 -- Font
 config.font = wezterm.font_with_fallback {
-    { family = 'Iosevka Term', harfbuzz_features = { 'calt=1' }, weight = 'Regular' } ,
+    { family = 'Iosevka Term', harfbuzz_features = { 'calt=1' }, weight = 'Medium' } ,
     { family = 'Symbols Nerd Font Mono', scale = 0.7 },
 }
 
