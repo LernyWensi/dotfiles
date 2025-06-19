@@ -71,7 +71,7 @@
 'ui.picker.header.column.active' = { fg = 'accent-1' }
 
 'ui.cursor' = { fg = 'background', bg = 'foreground-subtle' }
-'ui.cursor.match' = { fg = 'background', bg = 'foreground', modifiers = ['bold'] }
+'ui.cursor.match' = { fg = 'background', bg = 'foreground-subtle', modifiers = ['bold'] }
 'ui.cursor.primary.normal' = { fg = 'background', bg = 'accent-1', modifiers = ['bold'] }
 'ui.cursor.primary.insert' = { fg = 'background', bg = 'accent-2' }
 'ui.cursor.primary.select' = { fg = 'background', bg = 'accent-3' }
@@ -81,10 +81,7 @@
 'ui.virtual.whitespace' = { fg = 'foreground-elusive' }
 'ui.virtual.wrap' = { fg = 'foreground-elusive' }
 'ui.virtual.inlay-hint' = { fg = 'foreground-subtle' }
-'ui.virtual.jump-label' = { fg = 'accent-3', bg = 'background-subtle', underline = { style = 'line' }, modifiers = [
-    'bold',
-    'italic',
-] }
+'ui.virtual.jump-label' = { fg = 'accent-3', bg = 'background-subtle', underline = { style = 'line' }, modifiers = ['bold', 'italic'] }
 
 'diff.minus' = { fg = 'red' }
 'diff.delta' = { fg = 'yellow' }
