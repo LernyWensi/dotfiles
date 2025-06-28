@@ -8,10 +8,10 @@ config.default_domain = 'WSL:Ubuntu'
 config.audible_bell = "Disabled"
 
 config.visual_bell = {
-  fade_in_function = 'EaseIn',
-  fade_in_duration_ms = 150,
-  fade_out_function = 'EaseOut',
-  fade_out_duration_ms = 150,
+    fade_in_function = 'EaseIn',
+    fade_in_duration_ms = 150,
+    fade_out_function = 'EaseOut',
+    fade_out_duration_ms = 150,
 }
 
 -- Front-end
@@ -22,22 +22,19 @@ config.max_fps = 144
 config.animation_fps = 144
 
 -- Theme
-config.colors = require("themes.ornament")
+config.colors = require("themes.blight")
 
 -- Font
 config.font = wezterm.font_with_fallback {
-    { family = 'Iosevka Term', harfbuzz_features = { 'calt=1' }, weight = 'Medium' } ,
+    { family = 'Iosevka Term', harfbuzz_features = { 'calt=1' }, weight = 'Light' } ,
     { family = 'Symbols Nerd Font Mono', scale = 0.7 },
 }
 
-config.font_size = 16
-config.line_height = 1
+config.font_size = 18
+config.line_height = 1.2
 
 config.underline_thickness = 2
 config.underline_position = -4
-
-config.command_palette_font = wezterm.font('Iosevka Term')
-config.command_palette_font_size = 16
 
 -- Window
 config.window_decorations = 'RESIZE'
@@ -50,35 +47,74 @@ config.use_fancy_tab_bar = false
 config.tab_max_width = 500
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-    return {
-        { Foreground = { Color = '#a88aa6' } },
-        { Text = ' ' .. (tab.tab_index + 1) },
+    local colors = config.resolved_palette
 
-        { Foreground = { Color = '#b5b2b0' } },
+    local gradient_to, gradient_from = wezterm.color.parse(colors.tab_bar.active_tab.bg_color)
+    if (wezterm.gui.get_appearance():find("Dark") or true) then
+        gradient_from = gradient_to:lighten(0.1)
+    else
+        gradient_from = gradient_to:darken(0.1)
+    end
+
+    local gradient = wezterm.color.gradient(
+        { orientation = 'Horizontal', colors = { gradient_from, gradient_to } },
+        #tabs
+    )
+
+    return {
+        { Background = { Color = tab.is_active and gradient[#tabs - tab.tab_index] or colors.tab_bar.background } },
+        { Foreground = { Color = colors.ansi[6] } },
+        { Text = ' ' .. (tab.active_pane.is_zoomed and '◉' or '○') .. ' ' .. (tab.tab_index + 1) },
+
+        { Foreground = { Color = colors.ansi[7] } },
         { Text = ':' },
 
         'ResetAttributes',
+        { Background = { Color = tab.is_active and gradient[#tabs - tab.tab_index] or colors.tab_bar.background } },
         { Text = (tab.tab_title == '' and 'tab' or tab.tab_title) .. ' ' },
+
+        { Background = { Color = (tab.is_active or not (tabs[tab.tab_index + 2] ~= nil and tabs[tab.tab_index + 2].is_active)) and colors.tab_bar.background or gradient[#tabs - tab.tab_index - 1] } },
+        { Foreground = { Color = tab.is_active and gradient[#tabs - tab.tab_index] or colors.tab_bar.background } },
+        { Text = utf8.char(0xe0b0) },
     }
 end)
 
 wezterm.on('update-right-status', function(window, pane)
-    window:set_right_status(wezterm.format {
-        { Foreground = { Color = '#a88aa6' } },
-        { Text = window:active_workspace() },
+    local segments = {
+        window:active_workspace(),
+        wezterm.strftime('%H:%M:%S'),
+        wezterm.strftime('%A, %e %B, %Y'),
+    }
 
-        'ResetAttributes',
-        { Text = ' :: ' },
+    local colors = window:effective_config().resolved_palette
 
-        { Foreground = { Color = '#a8968a' } },
-        { Text = wezterm.strftime '%H:%M:%S'  },
+    local gradient_to, gradient_from = wezterm.color.parse(colors.tab_bar.active_tab.bg_color)
+    if (wezterm.gui.get_appearance():find("Dark") or true) then
+        gradient_from = gradient_to:lighten(0.1)
+    else
+        gradient_from = gradient_to:darken(0.1)
+    end
 
-        'ResetAttributes',
-        { Text = ' :: ' },
+    local gradient = wezterm.color.gradient(
+        { orientation = 'Horizontal', colors = { gradient_from, gradient_to } },
+        #segments
+    )
 
-        { Foreground = { Color = '#a8968a' } },
-        { Text = wezterm.strftime '%A, %e %B, %Y '  },
-    })
+    local elements = {}
+    for index, segment in ipairs(segments) do
+        if index == 1 then
+            table.insert(elements, { Background = { Color = colors.tab_bar.background } })
+        end
+
+        table.insert(elements, { Foreground = { Color = gradient[index] } })
+        table.insert(elements, { Text = utf8.char(0xe0b2) })
+
+        table.insert(elements, { Foreground = { Color = colors.tab_bar.active_tab.fg_color } })
+        table.insert(elements, { Background = { Color = gradient[index] } })
+        table.insert(elements, { Text = ' ' .. segment .. ' ' })
+    end
+
+    window:set_right_status(wezterm.format(elements))
 end)
 
 -- Pane
@@ -103,7 +139,7 @@ config.keys = {
     { key = 'w', mods = 'LEADER', action = wezterm.action.ShowLauncherArgs { flags = 'WORKSPACES', help_text = 'Select a workspace' } },
 
     { key = 'w', mods = 'LEADER|SHIFT', action = wezterm.action.PromptInputLine {
-            description = 'Enter name for new workspace',
+            description = 'Create a workspace',
             action = wezterm.action_callback(function(window, pane, line)
                 if line then
                     window:perform_action(wezterm.action.SwitchToWorkspace { name = line }, pane)
@@ -113,7 +149,7 @@ config.keys = {
     },
 
     { key = 'r', mods = 'LEADER|SHIFT', action = wezterm.action.PromptInputLine {
-            description = 'Enter new name for workspace',
+            description = 'Rename the workspace',
             action = wezterm.action_callback(function(window, pane, line)
                 if line then
                     wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
@@ -130,7 +166,7 @@ config.keys = {
     { key = 'g', mods = 'LEADER', action = wezterm.action.QuickSelect },
     { key = 'u', mods = 'LEADER', action = wezterm.action.QuickSelectArgs {
             label = 'Open URL',
-            patterns = { 'https?://\\S+' },
+            patterns = { '(?<!")https?://\\S+(?!")', '(?<=")https?://\\S+(?=")' },
             skip_action_on_paste = true,
             action = wezterm.action_callback(function(window, pane)
                 local url = window:get_selection_text_for_pane(pane)
@@ -170,7 +206,7 @@ config.keys = {
     { key = '9', mods = 'ALT', action = wezterm.action.ActivateTab(8) },
 
     { key = 'r', mods = 'LEADER', action = wezterm.action.PromptInputLine {
-            description = 'Enter new name for tab',
+            description = 'Rename the tab',
             action = wezterm.action_callback(function(window, pane, line)
                 if line then
                     window:active_tab():set_title(line)
@@ -238,6 +274,7 @@ config.keys = {
 }
 
 config.key_tables = {
+    -- Search
     search_mode = {
         { key = 'Escape', mods = 'NONE', action = wezterm.action.CopyMode 'Close' },
 
@@ -251,6 +288,7 @@ config.key_tables = {
         { key = 'PageDown', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatchPage' },
     },
 
+    -- Copy
     copy_mode = {
         { key = 'Escape', mods = 'NONE', action = wezterm.action.Multiple { 'ScrollToBottom', { CopyMode = 'Close' } } },
 
