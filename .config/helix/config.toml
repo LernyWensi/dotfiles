@@ -1,18 +1,20 @@
 # ====================== CONFIG ======================
 
-theme = 'ornament'
+theme = 'blight'
 
 [editor]
 shell = ['fish', '-c']
 
 idle-timeout = 100
 
+scrolloff = 20
+
 true-color = true
 undercurl = true
 color-modes = true
 bufferline = "always"
 line-number = 'relative'
-gutters = ['spacer', 'diff']
+gutters = ['diagnostics', 'line-numbers', 'spacer', 'diff']
 
 jump-label-alphabet = 'shtareniwfdolubjcpmxqgyzvk'
 
@@ -25,6 +27,8 @@ continue-comments = false
 
 trim-final-newlines = true
 trim-trailing-whitespace = true
+
+end-of-line-diagnostics = 'hint'
 
 [editor.inline-diagnostics]
 cursor-line = 'hint'
@@ -51,15 +55,8 @@ newline = '↩'
 [editor.file-picker]
 hidden = false
 
-[editor.search]
-wrap-around = false
-
 [editor.lsp]
-auto-signature-help = false
 display-progress-messages = true
-
-[editor.smart-tab]
-enable = true
 
 # =============== KEYBINDINGS (NORMAL) ===============
 
@@ -81,8 +78,8 @@ X = 'select_line_above'
 C-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
 C-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
 
-C-d = ['page_cursor_half_down', 'align_view_center']
-C-u = ['page_cursor_half_up', 'align_view_center']
+pagedown = ['page_cursor_half_down', 'align_view_center']
+pageup = ['page_cursor_half_up', 'align_view_center']
 
 C-up = 'jump_view_up'
 C-down = 'jump_view_down'
@@ -97,22 +94,6 @@ S-up = 'swap_view_up'
 S-left = 'swap_view_left'
 S-down = 'swap_view_down'
 S-right = 'swap_view_right'
-
-[keys.normal."'"]
-f = 'goto_file_vsplit'
-d = ['vsplit', 'goto_definition']
-D = ['vsplit', 'goto_declaration']
-y = ['vsplit', 'goto_type_definition']
-i = ['vsplit', 'goto_implementation']
-r = ['vsplit', 'goto_reference']
-
-[keys.normal.'"']
-f = 'goto_file_hsplit'
-d = ['hsplit', 'goto_definition']
-D = ['hsplit', 'goto_declaration']
-y = ['hsplit', 'goto_type_definition']
-i = ['hsplit', 'goto_implementation']
-r = ['hsplit', 'goto_reference']
 
 [keys.normal.backspace]
 c = ':buffer-close'
@@ -145,8 +126,8 @@ X = 'select_line_above'
 C-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
 C-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
 
-C-d = ['page_cursor_half_down', 'align_view_center']
-C-u = ['page_cursor_half_up', 'align_view_center']
+pagedown = ['page_cursor_half_down', 'align_view_center']
+pageup = ['page_cursor_half_up', 'align_view_center']
 
 # =============== KEYBINDINGS (INSERT) ===============
 

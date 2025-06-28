@@ -47,11 +47,13 @@
 
 'ui.background' = { fg = 'background-subtle', bg = 'background' }
 'ui.selection' = { bg = 'background-highlight' }
+'ui.highlight' = { bg = 'background-highlight' }
 
 'ui.text' = { fg = 'foreground' }
 'ui.text.focus' = { fg = 'accent-1', bg = 'background-subtle' }
 'ui.text.directory' = { fg = 'accent-2' }
 
+'ui.linenr' = { fg = 'foreground-elusive' }
 'ui.linenr.selected' = { fg = 'accent-1' }
 
 'ui.statusline' = { fg = 'accent-1', bg = 'background-subtle' }
@@ -92,10 +94,10 @@
 'info' = { fg = 'green', modifiers = ['italic', 'bold'] }
 'hint' = { fg = 'green', modifiers = ['italic', 'bold'] }
 
-'diagnostic.error' = { underline = { color = 'red', style = 'curl' } }
-'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
-'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
-'diagnostic.hint' = { underline = { color = 'green', style = 'curl' } }
+'diagnostic.error' = { fg = 'red', underline = { color = 'red', style = 'curl' } }
+'diagnostic.warning' = { fg = 'yellow', underline = { color = 'yellow', style = 'curl' } }
+'diagnostic.info' = { fg = 'green', underline = { color = 'green', style = 'curl' } }
+'diagnostic.hint' = { fg = 'green', underline = { color = 'green', style = 'curl' } }
 'diagnostic.unnecessary' = { modifiers = ['dim'] }
 'diagnostic.deprecated' = { modifiers = ['crossed_out'] }
 
