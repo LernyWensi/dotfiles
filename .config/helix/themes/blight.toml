@@ -3,24 +3,24 @@
 'comment' = { fg = 'foreground-subtle', modifiers = ['italic'] }
 
 'keyword' = { fg = 'accent-3' }
-'namespace' = { fg = 'accent-2', modifiers = ['bold'] }
-'constant' = { fg = 'accent-3' }
-'variable' = { fg = 'foreground', modifiers = ['italic'] }
-'function' = { fg = 'foreground', modifiers = ['bold'] }
-'constructor' = { fg = 'foreground', modifiers = ['bold', 'italic'] }
+'namespace' = { fg = 'accent-2', modifiers = ['italic'] }
+'constant' = { fg = 'accent-2', modifiers = ['bold'] }
+'variable' = { fg = 'foreground' }
+'function' = { fg = 'foreground', modifiers = ['italic'] }
+'constructor' = { fg = 'foreground', modifiers = ['bold'] }
 
 'type' = { fg = 'accent-1' }
 'type.parameter' = { fg = 'accent-2' }
 'type.enum.variant' = { fg = 'accent-2' }
 
 'operator' = { fg = 'accent-2' }
-'punctuation' = { fg = 'accent-3' }
+'punctuation' = { fg = 'accent-4' }
 'punctuation.bracket' = { fg = 'foreground-subtle' }
-'punctuation.special' = { fg = 'accent-3' }
+'punctuation.special' = { fg = 'accent-4' }
 
 'string' = { fg = 'accent-1', modifiers = ['italic'] }
 'constant.character' = { fg = 'accent-1', modifiers = ['italic'] }
-'constant.character.escape' = { fg = 'accent-3', modifiers = ['italic'] }
+'constant.character.escape' = { fg = 'accent-4', modifiers = ['italic'] }
 
 'tag' = { fg = 'accent-3' }
 'attribute' = { fg = 'accent-2' }
@@ -46,8 +46,8 @@
 # ======================== UI ========================
 
 'ui.background' = { fg = 'background-subtle', bg = 'background' }
-'ui.selection' = { bg = 'background-highlight' }
-'ui.highlight' = { bg = 'background-highlight' }
+'ui.selection' = { bg = 'accent-1-subtle' }
+'ui.highlight' = { bg = 'accent-1-subtle' }
 
 'ui.text' = { fg = 'foreground' }
 'ui.text.focus' = { fg = 'accent-1', bg = 'background-subtle' }
@@ -62,12 +62,12 @@
 'ui.statusline.select' = { fg = 'background-subtle', bg = 'accent-3' }
 
 'ui.bufferline' = { fg = 'foreground-subtle', bg = 'background-subtle' }
-'ui.bufferline.active' = { fg = 'accent-1', bg = 'background-highlight' }
+'ui.bufferline.active' = { fg = 'accent-1', bg = 'accent-1-subtle' }
 
 'ui.help' = { fg = 'accent-1', bg = 'background-subtle' }
 'ui.popup' = { fg = 'accent-1', bg = 'background-subtle' }
 'ui.menu' = { fg = 'foreground', bg = 'background-subtle' }
-'ui.menu.selected' = { fg = 'accent-1', bg = 'background-highlight' }
+'ui.menu.selected' = { fg = 'accent-1', bg = 'accent-1-subtle' }
 'ui.menu.scroll' = { fg = 'foreground', bg = 'foreground-subtle' }
 
 'ui.picker.header.column.active' = { fg = 'accent-1' }
@@ -94,10 +94,10 @@
 'info' = { fg = 'green', modifiers = ['italic', 'bold'] }
 'hint' = { fg = 'green', modifiers = ['italic', 'bold'] }
 
-'diagnostic.error' = { fg = 'red', underline = { color = 'red', style = 'curl' } }
-'diagnostic.warning' = { fg = 'yellow', underline = { color = 'yellow', style = 'curl' } }
-'diagnostic.info' = { fg = 'green', underline = { color = 'green', style = 'curl' } }
-'diagnostic.hint' = { fg = 'green', underline = { color = 'green', style = 'curl' } }
+'diagnostic.error' = { bg = 'red-subtle', fg = 'red', underline = { color = 'red', style = 'curl' } }
+'diagnostic.warning' = { bg = 'yellow-subtle', fg = 'yellow', underline = { color = 'yellow', style = 'curl' } }
+'diagnostic.info' = { bg = 'green-subtle', fg = 'green', underline = { color = 'green', style = 'curl' } }
+'diagnostic.hint' = { bg = 'green-subtle', fg = 'green', underline = { color = 'green', style = 'curl' } }
 'diagnostic.unnecessary' = { modifiers = ['dim'] }
 'diagnostic.deprecated' = { modifiers = ['crossed_out'] }
 
@@ -110,12 +110,21 @@ foreground-elusive = '#353331'
 
 background = '#1c1917'
 background-subtle = '#2a2522'
-background-highlight = '#38322e'
 
 red = '#a88a8a'
 yellow = '#a8a18a'
 green = '#8aa88a'
 
+red-subtle = '#382e2e'
+yellow-subtle = '#38362e'
+green-subtle = '#2e382e'
+
 accent-1 = '#a8968a'
 accent-2 = '#958aa8'
 accent-3 = '#a88aa6'
+accent-4 = '#8a9ea8'
+
+accent-1-subtle = '#38322e'
+accent-2-subtle = '#322e38'
+accent-3-subtle = '#382e37'
+accent-4-subtle = '#2e3538'

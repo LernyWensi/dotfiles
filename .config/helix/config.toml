@@ -7,14 +7,14 @@ shell = ['fish', '-c']
 
 idle-timeout = 100
 
-scrolloff = 20
+scrolloff = 10
 
 true-color = true
 undercurl = true
 color-modes = true
-bufferline = "always"
+bufferline = 'always'
 line-number = 'relative'
-gutters = ['diagnostics', 'line-numbers', 'spacer', 'diff']
+gutters = ['spacer', 'diagnostics', 'spacer', 'line-numbers', 'spacer', 'diff']
 
 jump-label-alphabet = 'shtareniwfdolubjcpmxqgyzvk'
 
@@ -136,8 +136,8 @@ A-k = 'signature_help'
 
 S-tab = 'move_parent_node_start'
 
-C-h = "delete_word_backward"
-C-del = "delete_word_forward"
+C-h = 'delete_word_backward'
+C-del = 'delete_word_forward'
 
 up = 'no_op'
 down = 'no_op'
@@ -166,7 +166,10 @@ S = ':set soft-wrap.enable false'
 t = ':set soft-wrap.wrap-at-text-width true'
 T = ':set soft-wrap.wrap-at-text-width false'
 
-'i' = ':toggle-option rulers [] [80, 120]'
+i = ':toggle-option rulers [] [80, 120]'
+
+b = ':theme blight'
+o = ':theme ornament'
 
 [keys.normal.l]
 r = ':lsp-restart'

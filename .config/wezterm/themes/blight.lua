@@ -15,8 +15,8 @@ return {
 
     visual_bell = '#38322e',
 
-    ansi = { '#2a2522', '#a88a8a', '#8aa88a', '#a8a18a', '#958aa8', '#a88aa6', '#a88aa6', '#b5b2b0' },
-    brights = { '#4f4c4a', '#a88a8a', '#8aa88a', '#a8a18a', '#958aa8', '#a88aa6', '#a88aa6', '#b5b2b0' },
+    ansi = { '#2a2522', '#a88a8a', '#8aa88a', '#a8a18a', '#958aa8', '#a88aa6', '#8a9ea8', '#b5b2b0' },
+    brights = { '#4f4c4a', '#a88a8a', '#8aa88a', '#a8a18a', '#958aa8', '#a88aa6', '#8a9ea8', '#b5b2b0' },
 
     compose_cursor = '#958aa8',
 

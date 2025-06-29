@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.default_domain = 'WSL:Ubuntu'
 
 -- Bells
-config.audible_bell = "Disabled"
+config.audible_bell = 'Disabled'
 
 config.visual_bell = {
     fade_in_function = 'EaseIn',
@@ -22,11 +22,15 @@ config.max_fps = 144
 config.animation_fps = 144
 
 -- Theme
-config.colors = require("themes.blight")
+if wezterm.gui.get_appearance():find("Dark") then
+    config.colors = require('themes.blight')
+else
+    config.colors = require('themes.ornament')
+end
 
 -- Font
 config.font = wezterm.font_with_fallback {
-    { family = 'Iosevka Term', harfbuzz_features = { 'calt=1' }, weight = 'Light' } ,
+    { family = 'Iosevka Term', harfbuzz_features = { 'calt=1' }, weight = 'Regular' } ,
     { family = 'Symbols Nerd Font Mono', scale = 0.7 },
 }
 
@@ -50,10 +54,10 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     local colors = config.resolved_palette
 
     local gradient_to, gradient_from = wezterm.color.parse(colors.tab_bar.active_tab.bg_color)
-    if (wezterm.gui.get_appearance():find("Dark") or true) then
-        gradient_from = gradient_to:lighten(0.1)
+    if (wezterm.gui.get_appearance():find("Dark")) then
+        gradient_from = gradient_to:lighten(0.05)
     else
-        gradient_from = gradient_to:darken(0.1)
+        gradient_from = gradient_to:darken(0.05)
     end
 
     local gradient = wezterm.color.gradient(
@@ -64,10 +68,7 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     return {
         { Background = { Color = tab.is_active and gradient[#tabs - tab.tab_index] or colors.tab_bar.background } },
         { Foreground = { Color = colors.ansi[6] } },
-        { Text = ' ' .. (tab.active_pane.is_zoomed and '◉' or '○') .. ' ' .. (tab.tab_index + 1) },
-
-        { Foreground = { Color = colors.ansi[7] } },
-        { Text = ':' },
+        { Text = ' ' .. (tab.active_pane.is_zoomed and '◉' or '○') .. ' ' .. (tab.tab_index + 1) .. ':' },
 
         'ResetAttributes',
         { Background = { Color = tab.is_active and gradient[#tabs - tab.tab_index] or colors.tab_bar.background } },
@@ -89,10 +90,10 @@ wezterm.on('update-right-status', function(window, pane)
     local colors = window:effective_config().resolved_palette
 
     local gradient_to, gradient_from = wezterm.color.parse(colors.tab_bar.active_tab.bg_color)
-    if (wezterm.gui.get_appearance():find("Dark") or true) then
-        gradient_from = gradient_to:lighten(0.1)
+    if (wezterm.gui.get_appearance():find("Dark")) then
+        gradient_from = gradient_to:lighten(0.05)
     else
-        gradient_from = gradient_to:darken(0.1)
+        gradient_from = gradient_to:darken(0.05)
     end
 
     local gradient = wezterm.color.gradient(
@@ -351,9 +352,11 @@ config.mouse_bindings = {
     { event = { Drag = { streak = 1, button = 'Left' } }, mods = 'NONE', action = wezterm.action.ExtendSelectionToMouseCursor('Cell') },
     { event = { Up = { streak = 1, button = 'Left' } }, mods = 'NONE', action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor('Clipboard') },
 
+    { event = { Down = { streak = 3, button = 'Left' } }, mods = 'NONE', action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone' },
     -- Scrolling
     { event = { Down = { streak = 1, button = { WheelUp = 1 } } }, mods = 'NONE', action = wezterm.action.ScrollByCurrentEventWheelDelta },
     { event = { Down = { streak = 1, button = { WheelDown = 1 } } }, mods = 'NONE', action = wezterm.action.ScrollByCurrentEventWheelDelta },
+
 }
 
 return config

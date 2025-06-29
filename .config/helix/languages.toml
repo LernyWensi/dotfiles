@@ -210,17 +210,9 @@ args = ['--stdio']
 ForceStable = true
 
 [language-server.harper-ls.config.harper-ls.linters]
-SpellCheck = true
-SpelledNumbers = true
-AnA = true
-SentenceCapitalization = true
-UnclosedQuotes = true
-WrongQuotes = true
-LongSentences = true
-RepeatedWords = true
-Spaces = true
-Matcher = true
-CorrectNumberSuffix = true
+UseGenitive = true
+BoringWords = true
+AnotherThinkComing = true
 
 # mdpls
 [language-server.mdpls]
