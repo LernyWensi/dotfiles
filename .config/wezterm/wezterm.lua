@@ -84,7 +84,7 @@ wezterm.on('update-right-status', function(window, pane)
     local segments = {
         window:active_workspace(),
         wezterm.strftime('%H:%M:%S'),
-        wezterm.strftime('%A, %e %B, %Y'),
+        wezterm.strftime('%A,%e %B, %Y'),
     }
 
     local colors = window:effective_config().resolved_palette
