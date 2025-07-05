@@ -1,4 +1,4 @@
---- @since 25.4.4
+--- @since 25.5.31
 
 local WINDOWS = ya.target_family() == "windows"
 
@@ -108,7 +108,12 @@ local add = ya.sync(function(st, cwd, repo, changed)
 			st.repos[repo][path] = code
 		end
 	end
-	ya.render()
+	-- TODO: remove this
+	if ui.render then
+		ui.render()
+	else
+		ya.render()
+	end
 end)
 
 local remove = ya.sync(function(st, cwd)
@@ -117,7 +122,12 @@ local remove = ya.sync(function(st, cwd)
 		return
 	end
 
-	ya.render()
+	-- TODO: remove this
+	if ui.render then
+		ui.render()
+	else
+		ya.render()
+	end
 	st.dirs[cwd] = nil
 	if not st.repos[repo] then
 		return
@@ -190,8 +200,8 @@ local function fetch(_, job)
 	-- stylua: ignore
 	local output, err = Command("git")
 		:cwd(tostring(cwd))
-		:args({ "--no-optional-locks", "-c", "core.quotePath=", "status", "--porcelain", "-unormal", "--no-renames", "--ignored=matching" })
-		:args(paths)
+		:arg({ "--no-optional-locks", "-c", "core.quotePath=", "status", "--porcelain", "-unormal", "--no-renames", "--ignored=matching" })
+		:arg(paths)
 		:stdout(Command.PIPED)
 		:output()
 	if not output then
