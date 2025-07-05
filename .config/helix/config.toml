@@ -89,6 +89,17 @@ C-right = 'jump_view_right'
 C-pagedown = ':buffer-next'
 C-pageup = ':buffer-previous'
 
+[keys.normal.g]
+1 = ':buffer-nth 1'
+2 = ':buffer-nth 2'
+3 = ':buffer-nth 3'
+4 = ':buffer-nth 4'
+5 = ':buffer-nth 5'
+6 = ':buffer-nth 6'
+7 = ':buffer-nth 7'
+8 = ':buffer-nth 8'
+9 = ':buffer-nth 9'
+
 [keys.normal.space.w]
 S-up = 'swap_view_up'
 S-left = 'swap_view_left'

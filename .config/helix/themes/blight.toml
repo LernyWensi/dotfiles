@@ -94,10 +94,15 @@
 'info' = { fg = 'green', modifiers = ['italic', 'bold'] }
 'hint' = { fg = 'green', modifiers = ['italic', 'bold'] }
 
-'diagnostic.error' = { bg = 'red-subtle', fg = 'red', underline = { color = 'red', style = 'curl' } }
-'diagnostic.warning' = { bg = 'yellow-subtle', fg = 'yellow', underline = { color = 'yellow', style = 'curl' } }
-'diagnostic.info' = { bg = 'green-subtle', fg = 'green', underline = { color = 'green', style = 'curl' } }
-'diagnostic.hint' = { bg = 'green-subtle', fg = 'green', underline = { color = 'green', style = 'curl' } }
+'error.diagnostic.inline' = { bg = 'red-subtle', fg = 'red', modifiers = ['italic', 'bold'] }
+'warning.diagnostic.inline' = { bg = 'yellow-subtle', fg = 'yellow', modifiers = ['italic', 'bold'] }
+'info.diagnostic.inline' = { bg = 'green-subtle', fg = 'green', modifiers = ['italic', 'bold'] }
+'hint.diagnostic.inline' = { bg = 'green-subtle', fg = 'green', modifiers = ['italic', 'bold'] }
+
+'diagnostic.error' = { underline = { color = 'red', style = 'curl' } }
+'diagnostic.warning' = { underline = { color = 'yellow', style = 'curl' } }
+'diagnostic.info' = { underline = { color = 'green', style = 'curl' } }
+'diagnostic.hint' = { underline = { color = 'green', style = 'curl' } }
 'diagnostic.unnecessary' = { modifiers = ['dim'] }
 'diagnostic.deprecated' = { modifiers = ['crossed_out'] }
 
