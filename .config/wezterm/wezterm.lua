@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 local config = wezterm.config_builder()
 
 -- Environment
-config.default_domain = 'WSL:Ubuntu'
+config.default_domain = 'WSL:archlinux'
 
 -- Bells
 config.audible_bell = 'Disabled'
@@ -22,11 +22,7 @@ config.max_fps = 144
 config.animation_fps = 144
 
 -- Theme
-if wezterm.gui.get_appearance():find("Dark") then
-    config.colors = require('themes.blight')
-else
-    config.colors = require('themes.ornament')
-end
+config.colors = require('themes.' .. (wezterm.gui.get_appearance():find("Dark") and 'blight' or 'ornament'))
 
 -- Font
 config.font = wezterm.font_with_fallback {
@@ -42,7 +38,9 @@ config.underline_position = -4
 
 -- Window
 config.window_decorations = 'RESIZE'
+
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+config.window_content_alignment = { horizontal = 'Center', vertical = 'Center' }
 
 -- Bar
 config.tab_bar_at_bottom = true
@@ -84,7 +82,7 @@ wezterm.on('update-right-status', function(window, pane)
     local segments = {
         window:active_workspace(),
         wezterm.strftime('%H:%M:%S'),
-        wezterm.strftime('%A,%e %B, %Y'),
+        wezterm.strftime('%A, %e %B, %Y'),
     }
 
     local colors = window:effective_config().resolved_palette
@@ -160,7 +158,7 @@ config.keys = {
     },
 
     -- Modes
-    { key = 'f', mods = 'LEADER', action = wezterm.action.Search 'CurrentSelectionOrEmptyString' },
+    { key = '/', mods = 'LEADER', action = wezterm.action.Search 'CurrentSelectionOrEmptyString' },
     { key = 'c', mods = 'LEADER', action = wezterm.action.ActivateCopyMode },
 
     -- Selections
@@ -223,7 +221,6 @@ config.keys = {
 
     { key = 'z', mods = 'ALT', action = wezterm.action.TogglePaneZoomState },
     { key = 'b', mods = 'LEADER', action = wezterm.action.PaneSelect { mode = 'MoveToNewTab' } },
-    { key = '/', mods = 'LEADER', action = wezterm.action.RotatePanes 'Clockwise' },
 
     { key = '\'', mods = 'ALT', action = wezterm.action_callback(function(_, pane)
             local tab = pane:tab()
@@ -348,15 +345,15 @@ config.key_tables = {
 config.disable_default_mouse_bindings = true
 config.mouse_bindings = {
     -- Copying
+    { event = { Down = { streak = 3, button = 'Left' } }, mods = 'NONE', action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone' },
+
     { event = { Down = { streak = 1, button = 'Left' } }, mods = 'NONE', action = wezterm.action.SelectTextAtMouseCursor('Cell') },
     { event = { Drag = { streak = 1, button = 'Left' } }, mods = 'NONE', action = wezterm.action.ExtendSelectionToMouseCursor('Cell') },
     { event = { Up = { streak = 1, button = 'Left' } }, mods = 'NONE', action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor('Clipboard') },
 
-    { event = { Down = { streak = 3, button = 'Left' } }, mods = 'NONE', action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone' },
     -- Scrolling
     { event = { Down = { streak = 1, button = { WheelUp = 1 } } }, mods = 'NONE', action = wezterm.action.ScrollByCurrentEventWheelDelta },
     { event = { Down = { streak = 1, button = { WheelDown = 1 } } }, mods = 'NONE', action = wezterm.action.ScrollByCurrentEventWheelDelta },
-
 }
 
 return config
