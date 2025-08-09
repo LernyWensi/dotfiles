@@ -12,9 +12,9 @@ scrolloff = 10
 true-color = true
 undercurl = true
 color-modes = true
-bufferline = 'always'
+bufferline = 'never'
 line-number = 'relative'
-gutters = ['spacer', 'diagnostics', 'spacer', 'line-numbers', 'spacer', 'diff']
+gutters = ['diff']
 
 jump-label-alphabet = 'shtareniwfdolubjcpmxqgyzvk'
 
@@ -28,7 +28,7 @@ continue-comments = false
 trim-final-newlines = true
 trim-trailing-whitespace = true
 
-end-of-line-diagnostics = 'hint'
+end-of-line-diagnostics = 'disable'
 
 [editor.inline-diagnostics]
 cursor-line = 'hint'
@@ -41,13 +41,14 @@ separator = '::'
 left = ['file-name', 'diagnostics', 'file-modification-indicator', 'spacer']
 right = ['spinner', 'spacer', 'selections', 'separator', 'primary-selection-length', 'separator', 'position', 'separator', 'total-line-numbers']
 
+[editor.indent-guides]
+render = false
+character = '▏'
+
 [editor.soft-wrap]
 wrap-indicator = '↪ '
 max-indent-retain = 0
-
-[editor.indent-guides]
-render = true
-character = '▏'
+wrap-at-text-width = true
 
 [editor.whitespace.characters]
 newline = '↩'
@@ -60,7 +61,7 @@ display-progress-messages = true
 
 [editor.word-completion]
 enable = true
-trigger-length = 1
+trigger-length = 3
 
 # =============== KEYBINDINGS (NORMAL) ===============
 
@@ -72,9 +73,6 @@ ret = 'goto_word'
 A-e = 'move_next_sub_word_end'
 A-w = 'move_next_sub_word_start'
 A-b = 'move_prev_sub_word_start'
-
-tab = 'move_parent_node_end'
-S-tab = 'move_parent_node_start'
 
 x = 'select_line_below'
 X = 'select_line_above'
@@ -93,17 +91,6 @@ C-right = 'jump_view_right'
 C-pagedown = ':buffer-next'
 C-pageup = ':buffer-previous'
 
-[keys.normal.g]
-1 = ':buffer-nth 1'
-2 = ':buffer-nth 2'
-3 = ':buffer-nth 3'
-4 = ':buffer-nth 4'
-5 = ':buffer-nth 5'
-6 = ':buffer-nth 6'
-7 = ':buffer-nth 7'
-8 = ':buffer-nth 8'
-9 = ':buffer-nth 9'
-
 [keys.normal.space.w]
 S-up = 'swap_view_up'
 S-left = 'swap_view_left'
@@ -117,23 +104,10 @@ C = ':buffer-close!'
 o = ':buffer-close-others'
 O = ':buffer-close-others!'
 
-[keys.normal.C-y]
-y = ":sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') open > /dev/null"
-Y = ":sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') open zoom > /dev/null"
-
-v = ":sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') vsplit > /dev/null"
-V = ":sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') vsplit zoom > /dev/null"
-
-s = ":sh wezterm cli split-pane --bottom -- ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') hsplit > /dev/null"
-S = ":sh wezterm cli split-pane ~/.config/helix/scripts/yazi-picker.sh $(wezterm cli list-clients | awk 'NR==2{print $7}') hsplit zoom > /dev/null"
-
 # =============== KEYBINDINGS (SELECT) ===============
 
 [keys.select]
 ret = 'extend_to_word'
-
-tab = 'extend_parent_node_end'
-S-tab = 'extend_parent_node_start'
 
 x = 'select_line_below'
 X = 'select_line_above'
@@ -148,11 +122,6 @@ pageup = ['page_cursor_half_up', 'align_view_center']
 
 [keys.insert]
 A-k = 'signature_help'
-
-S-tab = 'move_parent_node_start'
-
-C-h = 'delete_word_backward'
-C-del = 'delete_word_forward'
 
 up = 'no_op'
 down = 'no_op'
@@ -170,21 +139,12 @@ r = ':config-reload'
 c = ':open ~/.config/helix/config.toml'
 l = ':open ~/.config/helix/languages.toml'
 
-h = ':toggle-option lsp.display-inlay-hints'
-w = ':toggle-option whitespace.render all none'
-g = ':toggle-option indent-guides.render'
-f = ':toggle-option auto-format'
-
-s = ':set soft-wrap.enable true'
-S = ':set soft-wrap.enable false'
-
-t = ':set soft-wrap.wrap-at-text-width true'
-T = ':set soft-wrap.wrap-at-text-width false'
-
-i = ':toggle-option rulers [] [80, 120]'
-
 b = ':theme blight'
 o = ':theme ornament'
+
+h = ':toggle-option lsp.display-inlay-hints'
+w = ':toggle-option whitespace.render all none'
+g = ':toggle-option rulers [] [80, 120]'
 
 [keys.normal.l]
 r = ':lsp-restart'

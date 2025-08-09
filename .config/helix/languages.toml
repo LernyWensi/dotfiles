@@ -1,55 +1,47 @@
 # ================ LANGUAGES ================
 
-# Fish
-[[language]]
-name = 'fish'
-language-servers = ['harper-ls']
-auto-format = false
-
-# Rust
-[[language]]
-name = 'rust'
-language-servers = ['rust-analyzer', 'harper-ls']
-
-# Scheme
-[[language]]
-name = 'scheme'
-language-servers = ['steel-language-server', 'harper-ls']
-auto-format = true
-indent = { tab-width = 4, unit = "  " }
-
 # Haskell
 [[language]]
 name = 'haskell'
-language-servers = ['haskell-language-server', 'harper-ls']
+language-servers = ['haskell-language-server']
+indent = { tab-width = 4, unit = '    ' }
 auto-format = true
-indent = { tab-width = 4, unit = '  ' }
 
 # Cabal
 [[language]]
 name = 'cabal'
 file-types = ['cabal', 'project']
+language-servers = ['haskell-language-server']
+indent = { tab-width = 4, unit = '    ' }
 auto-format = true
 
 # C
 [[language]]
 name = 'c'
-language-servers = ['clangd', 'harper-ls']
 file-types = ['c', 'h']
-indent = { tab-width = 4, unit = '  ' }
+language-servers = ['clangd']
+indent = { tab-width = 4, unit = '    ' }
 auto-format = true
 
 # C++
 [[language]]
 name = 'cpp'
-language-servers = ['clangd', 'harper-ls']
-indent = { tab-width = 4, unit = '  ' }
+language-servers = ['clangd']
+indent = { tab-width = 4, unit = '    ' }
+auto-format = true
+
+# Lua
+[[language]]
+name = 'lua'
+language-servers = ['lua-language-server']
+formatter = { command = 'stylua', args = ['--search-parent-directories', '-'] }
+indent = { tab-width = 4, unit = '    ' }
 auto-format = true
 
 # JavaScript
 [[language]]
 name = 'javascript'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'harper-ls']
+language-servers = ['typescript-language-server', 'vscode-eslint-language-server']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
@@ -57,7 +49,7 @@ auto-format = true
 # JSX
 [[language]]
 name = 'jsx'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'tailwindcss-ls', 'emmet-lsp', 'harper-ls']
+language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
@@ -65,7 +57,7 @@ auto-format = true
 # TypeScript
 [[language]]
 name = 'typescript'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'harper-ls']
+language-servers = ['typescript-language-server', 'vscode-eslint-language-server']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
@@ -73,7 +65,7 @@ auto-format = true
 # TSX
 [[language]]
 name = 'tsx'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'tailwindcss-ls', 'emmet-lsp', 'harper-ls']
+language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
@@ -81,33 +73,39 @@ auto-format = true
 # HTML
 [[language]]
 name = 'html'
-language-servers = ['vscode-html-language-server', 'tailwindcss-ls', 'emmet-lsp', 'harper-ls']
+language-servers = ['vscode-html-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'html'] }
 indent = { tab-width = 4, unit = '    ' }
+auto-format = true
 
 # CSS
 [[language]]
 name = 'css'
-language-servers = ['vscode-css-language-server', 'tailwindcss-ls', 'emmet-lsp']
+language-servers = ['vscode-css-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'css'] }
 indent = { tab-width = 4, unit = '    ' }
+auto-format = true
 
 # JSON
 [[language]]
 name = 'json'
+language-servers = ['vscode-json-language-server', 'vscode-eslint-language-server']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'json'] }
 indent = { tab-width = 4, unit = '    ' }
+auto-format = true
 
 # JSONC
 [[language]]
 name = 'jsonc'
+language-servers = ['vscode-json-language-server', 'vscode-eslint-language-server']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'jsonc'] }
 indent = { tab-width = 4, unit = '    ' }
+auto-format = true
 
 # TOML
 [[language]]
 name = 'toml'
-language-servers = ['taplo', 'harper-ls']
+language-servers = ['taplo']
 formatter = { command = 'taplo', args = ['fmt', '-'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
@@ -115,13 +113,13 @@ auto-format = true
 # Markdown
 [[language]]
 name = 'markdown'
-language-servers = ['marksman', 'mdpls', 'harper-ls']
+language-servers = ['marksman', 'harper-ls']
 formatter = { command = 'npx', args = ['prettier', '--parser', 'markdown'] }
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
 soft-wrap.enable = true
 
-# typst
+# Typst
 [[language]]
 name = 'typst'
 language-servers = ['tinymist', 'harper-ls']
@@ -132,10 +130,12 @@ soft-wrap.enable = true
 [[language]]
 name = 'git-config'
 file-types = [{ glob = '.gitmodules' }, { glob = '.gitconfig.local' }, { glob = '.gitconfig' }, { glob = '.git/config' }, { glob = '.config/git/config' }]
+indent = { tab-width = 4, unit = '    ' }
 
 [[language]]
 name = 'git-commit'
 language-servers = ['harper-ls']
+indent = { tab-width = 4, unit = '    ' }
 
 # ================= SERVERS =================
 
@@ -145,10 +145,9 @@ checkParents = 'AlwaysCheck'
 formattingProvider = 'fourmolu'
 cabalFormattingProvider = 'cabal-gild'
 
-[language-server.haskell-language-server.config.plugin]
-fourmolu.config.external = true
-rename.config.crossModule = true
-hlint.config.flags = [
+plugin.fourmolu.config.external = true
+plugin.rename.config.crossModule = true
+plugin.hlint.config.flags = [
     '--with-group=future',
     '--with-group=extra',
     '--with-group=use-lens',
@@ -159,15 +158,61 @@ hlint.config.flags = [
     '--with-group=teaching',
 ]
 
-# emmet-lsp
-[language-server.emmet-lsp]
-command = 'emmet-language-server'
-args = ['--stdio']
+# rust-analyzer
+[language-server.rust-analyzer.config]
+completion.callable.snippets = 'none'
+
+interpret.tests = true
+procMacro.enable = true
+
+diagnostics.styleLints.enable = true
+diagnostics.experimental.enable = true
+
+check.features = 'all'
+check.command = 'clippy'
+
+cargo.features = 'all'
+
+rustfmt.extraArgs = ['+nightly']
+
+# harper-ls
+[language-server.harper-ls.config.harper-ls]
+codeActions.ForceStable = true
+
+linters.UseGenitive = true
+linters.BoringWords = true
+linters.AnotherThinkComing = true
+
+# tinymist
+[language-server.tinymist.config]
+exportPdf = 'onType'
+outputPath = '$dir/dist/$name'
+
+formatterMode = 'typstyle'
+formatterIndentSize = 4
+formatterPrintWidth = 120
+
+lint.enabled = true
+lint.when = 'onType'
+
+preview.cursorIndicator = true
+preview.scrollSync = 'onSelectionChange'
+preview.background.enabled = true
+preview.background.args = ['--data-plane-host=127.0.0.1:23626', '--invert-colors=never', '--open']
+
+# vscode-html-language-server
+[language-server.vscode-html-language-server.config]
+provideFormatter = false
+
+# vscode-css-language-server
+[language-server.vscode-css-language-server.config]
+provideFormatter = false
 
 # vscode-json-language-server
-[language-server.vscode-json-language-server.config.json]
-validate = { enable = true }
-schemas = [
+[language-server.vscode-json-language-server.config]
+provideFormatter = false
+
+json.schemas = [
     { fileMatch = [
         'package.json',
     ], url = 'https://json.schemastore.org/package.json' },
@@ -184,90 +229,7 @@ schemas = [
     ], url = 'https://json.schemastore.org/chrome-manifest.json' },
 ]
 
-# rust-analyzer
-[language-server.rust-analyzer.config]
-completion.callable.snippets = 'none'
-inlayHints.implicitDrops.enable = true
-
-interpret.tests = true
-procMacro.enable = true
-
-cargo.features = 'all'
-
-files.watcher = 'server'
-
-[language-server.rust-analyzer.config.check]
-features = 'all'
-command = 'clippy'
-
-[language-server.rust-analyzer.config.rustfmt]
-extraArgs = ['+nightly']
-rangeFormatting.enable = true
-
-[language-server.rust-analyzer.config.diagnostics]
-styleLints.enable = true
-experimental.enable = true
-
-# steel-language-server
-[language-server.steel-language-server]
-command = 'steel-language-server'
-
-# harper-ls
-[language-server.harper-ls]
-command = 'harper-ls'
+# emmet-lsp
+[language-server.emmet-lsp]
+command = 'emmet-language-server'
 args = ['--stdio']
-
-[language-server.harper-ls.config.harper-ls.codeActions]
-ForceStable = true
-
-[language-server.harper-ls.config.harper-ls.linters]
-UseGenitive = true
-BoringWords = true
-AnotherThinkComing = true
-
-# mdpls
-[language-server.mdpls]
-command = 'mdpls'
-
-[language-server.mdpls.config]
-markdown.preview.auto = false
-markdown.preview.serveStatic = true
-markdown.preview.browser = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'
-
-# tinymist
-[language-server.tinymist.config]
-exportPdf = 'onType'
-outputPath = '$dir/dist/$name'
-
-formatterMode = 'typstyle'
-formatterIndentSize = 4
-formatterPrintWidth = 120
-
-[language-server.tinymist.config.lint]
-enabled = true
-when = 'onType'
-
-[language-server.tinymist.config.preview]
-cursorIndicator = true
-scrollSync = 'onSelectionChange'
-
-[language-server.tinymist.config.preview.background]
-enabled = true
-args = ['--data-plane-host=127.0.0.1:23626', '--invert-colors=never', '--open']
-
-# tailwindcss-ls
-[language-server.tailwindcss-ls]
-command = 'tailwindcss-language-server'
-args = ['--stdio']
-
-# vscode-html-language-server
-[vscode-html-language-server.config]
-provideFormatter = false
-
-# vscode-css-language-server
-[vscode-css-language-server.config]
-provideFormatter = false
-
-# vscode-json-language-server
-[vscode-json-language-server.config]
-provideFormatter = false
