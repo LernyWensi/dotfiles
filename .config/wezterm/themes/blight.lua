@@ -6,7 +6,7 @@ return {
     cursor_fg = '#1c1917',
     cursor_border = '#a8968a',
 
-    selection_fg = 'none',
+    selection_fg = '#a8968a',
     selection_bg = '#38322e',
 
     scrollbar_thumb = '#4f4c4a',
