@@ -1,0 +1,6 @@
+indent_type = 'Spaces'
+quote_style = 'ForceSingle'
+collapse_simple_statement = 'Always'
+
+[sort_requires]
+enabled = true
