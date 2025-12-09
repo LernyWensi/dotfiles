@@ -1,5 +1,5 @@
 [include]
-    path = ~/.gitconfig.local
+    path = ~/.config/git/.gitconfig.local
 [init]
     defaultBranch = main
 [core]
@@ -8,3 +8,7 @@
     external = difft
 [alias]
     log-graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''           %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+[credential]
+    helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+    useHttpPath = true

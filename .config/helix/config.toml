@@ -1,6 +1,8 @@
 # ====================== CONFIG ======================
 
-theme = 'blight'
+[theme]
+dark = 'blight'
+light = 'ornament'
 
 [editor]
 shell = ['fish', '-c']
@@ -77,16 +79,11 @@ A-b = 'move_prev_sub_word_start'
 x = 'select_line_below'
 X = 'select_line_above'
 
-C-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
-C-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
+S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
+S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
 
 pagedown = ['page_cursor_half_down', 'align_view_center']
 pageup = ['page_cursor_half_up', 'align_view_center']
-
-C-up = 'jump_view_up'
-C-down = 'jump_view_down'
-C-left = 'jump_view_left'
-C-right = 'jump_view_right'
 
 C-pagedown = ':buffer-next'
 C-pageup = ':buffer-previous'
@@ -112,8 +109,8 @@ ret = 'extend_to_word'
 x = 'select_line_below'
 X = 'select_line_above'
 
-C-S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
-C-S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
+S-up = ['extend_to_line_bounds', 'delete_selection', 'move_line_up', 'paste_before']
+S-down = ['extend_to_line_bounds', 'delete_selection', 'paste_after']
 
 pagedown = ['page_cursor_half_down', 'align_view_center']
 pageup = ['page_cursor_half_up', 'align_view_center']
@@ -138,9 +135,6 @@ end = 'no_op'
 r = ':config-reload'
 c = ':open ~/.config/helix/config.toml'
 l = ':open ~/.config/helix/languages.toml'
-
-b = ':theme blight'
-o = ':theme ornament'
 
 h = ':toggle-option lsp.display-inlay-hints'
 w = ':toggle-option whitespace.render all none'
