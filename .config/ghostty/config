@@ -1,0 +1,15 @@
+theme = blight
+cursor-style = block
+font-size = 24
+
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-save-state = always
+
+shell-integration-features = no-cursor
+window-inherit-working-directory = true
+
+macos-icon = holographic
+macos-icon-frame = chrome
+macos-option-as-alt = true
