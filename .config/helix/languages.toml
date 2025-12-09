@@ -23,85 +23,6 @@ language-servers = ['clangd']
 indent = { tab-width = 4, unit = '    ' }
 auto-format = true
 
-# C++
-[[language]]
-name = 'cpp'
-language-servers = ['clangd']
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# Lua
-[[language]]
-name = 'lua'
-language-servers = ['lua-language-server']
-formatter = { command = 'stylua', args = ['--search-parent-directories', '-'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# JavaScript
-[[language]]
-name = 'javascript'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# JSX
-[[language]]
-name = 'jsx'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# TypeScript
-[[language]]
-name = 'typescript'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# TSX
-[[language]]
-name = 'tsx'
-language-servers = ['typescript-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'typescript'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# HTML
-[[language]]
-name = 'html'
-language-servers = ['vscode-html-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'html'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# CSS
-[[language]]
-name = 'css'
-language-servers = ['vscode-css-language-server', 'vscode-eslint-language-server', 'emmet-lsp', 'tailwindcss-ls']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'css'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# JSON
-[[language]]
-name = 'json'
-language-servers = ['vscode-json-language-server', 'vscode-eslint-language-server']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'json'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
-# JSONC
-[[language]]
-name = 'jsonc'
-language-servers = ['vscode-json-language-server', 'vscode-eslint-language-server']
-formatter = { command = 'npx', args = ['prettier', '--parser', 'jsonc'] }
-indent = { tab-width = 4, unit = '    ' }
-auto-format = true
-
 # TOML
 [[language]]
 name = 'toml'
@@ -127,11 +48,13 @@ indent = { tab-width = 4, unit = '    ' }
 auto-format = true
 soft-wrap.enable = true
 
+# Git Config
 [[language]]
 name = 'git-config'
 file-types = [{ glob = '.gitmodules' }, { glob = '.gitconfig.local' }, { glob = '.gitconfig' }, { glob = '.git/config' }, { glob = '.config/git/config' }]
 indent = { tab-width = 4, unit = '    ' }
 
+# Git Commit
 [[language]]
 name = 'git-commit'
 language-servers = ['harper-ls']
@@ -182,54 +105,3 @@ codeActions.ForceStable = true
 linters.UseGenitive = true
 linters.BoringWords = true
 linters.AnotherThinkComing = true
-
-# tinymist
-[language-server.tinymist.config]
-exportPdf = 'onType'
-outputPath = '$dir/dist/$name'
-
-formatterMode = 'typstyle'
-formatterIndentSize = 4
-formatterPrintWidth = 120
-
-lint.enabled = true
-lint.when = 'onType'
-
-preview.cursorIndicator = true
-preview.scrollSync = 'onSelectionChange'
-preview.background.enabled = true
-preview.background.args = ['--data-plane-host=127.0.0.1:23626', '--invert-colors=never', '--open']
-
-# vscode-html-language-server
-[language-server.vscode-html-language-server.config]
-provideFormatter = false
-
-# vscode-css-language-server
-[language-server.vscode-css-language-server.config]
-provideFormatter = false
-
-# vscode-json-language-server
-[language-server.vscode-json-language-server.config]
-provideFormatter = false
-
-json.schemas = [
-    { fileMatch = [
-        'package.json',
-    ], url = 'https://json.schemastore.org/package.json' },
-    { fileMatch = [
-        'tsconfig.json',
-        'tsconfig.*.json',
-    ], url = 'https://json.schemastore.org/tsconfig.json' },
-    { fileMatch = [
-        '.prettierrc.json',
-        '.prettierrc',
-    ], url = 'https://json.schemastore.org/prettierrc.json' },
-    { fileMatch = [
-        'manifest.json',
-    ], url = 'https://json.schemastore.org/chrome-manifest.json' },
-]
-
-# emmet-lsp
-[language-server.emmet-lsp]
-command = 'emmet-language-server'
-args = ['--stdio']

@@ -1,4 +1,4 @@
-inherits = "blight"
+inherits = 'blight'
 
 # ====================== COLORS ======================
 

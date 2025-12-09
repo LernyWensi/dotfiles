@@ -1,0 +1,20 @@
+theme = light:Ornament,dark:Blight
+cursor-style = block
+
+font-size = 18
+adjust-underline-position = 4
+adjust-cell-height = 30%
+
+window-theme = system
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-save-state = always
+
+shell-integration-features = no-cursor
+window-inherit-working-directory = true
+
+macos-icon = xray
+macos-option-as-alt = true
+
+confirm-close-surface = false

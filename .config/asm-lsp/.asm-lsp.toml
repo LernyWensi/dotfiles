@@ -1,8 +1,0 @@
-[default_config]
-assembler = "nasm"
-instruction_set = "x86/x86-64"
-
-[opts]
-compiler = "clang"
-diagnostics = true
-default_diagnostics = true
