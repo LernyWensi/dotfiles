@@ -1,7 +1,12 @@
 theme = light:Ornament,dark:Blight
 cursor-style = block
 
+macos-icon = official
+macos-option-as-alt = true
+macos-titlebar-style = native
+
 font-size = 18
+font-thicken = false
 adjust-underline-position = 4
 adjust-cell-height = 30%
 
@@ -9,12 +14,62 @@ window-theme = system
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
+
+window-inherit-working-directory = true
 window-save-state = always
 
-shell-integration-features = no-cursor
-window-inherit-working-directory = true
-
-macos-icon = xray
-macos-option-as-alt = true
-
+link-previews = true
 confirm-close-surface = false
+shell-integration-features = no-cursor
+
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = notify
+
+keybind = clear
+
+keybind = cmd+shift+,=reload_config
+
+keybind = cmd+z=undo
+keybind = cmd+shift+z=redo
+
+keybind = cmd+c=copy_to_clipboard:mixed
+keybind = cmd+v=paste_from_clipboard
+
+keybind = cmd+b>c=write_screen_file:copy
+keybind = cmd+b>p=write_screen_file:paste
+keybind = cmd+h>c=write_scrollback_file:copy
+keybind = cmd+h>p=write_scrollback_file:paste
+
+keybind = cmd+f=start_search
+
+keybind = cmd+arrow_down=scroll_page_lines:1
+keybind = cmd+arrow_up=scroll_page_lines:-1
+keybind = cmd+page_down=scroll_page_fractional:1
+keybind = cmd+page_up=scroll_page_fractional:-1
+keybind = page_down=jump_to_prompt:1
+keybind = page_up=jump_to_prompt:-1
+
+keybind = cmd+t=new_tab
+keybind = cmd+opt+arrow_left=previous_tab
+keybind = cmd+opt+arrow_right=next_tab
+keybind = cmd+opt+shift+arrow_left=move_tab:-1
+keybind = cmd+opt+shift+arrow_right=move_tab:1
+keybind = cmd+digit_0=goto_tab:0
+keybind = cmd+digit_1=goto_tab:1
+keybind = cmd+digit_2=goto_tab:2
+keybind = cmd+digit_3=goto_tab:3
+keybind = cmd+digit_4=goto_tab:4
+keybind = cmd+digit_5=goto_tab:5
+keybind = cmd+digit_6=goto_tab:6
+keybind = cmd+digit_7=goto_tab:7
+keybind = cmd+digit_8=goto_tab:8
+keybind = cmd+digit_9=goto_tab:9
+
+keybind = cmd+w>z=toggle_split_zoom
+keybind = cmd+w>v=new_split:right
+keybind = cmd+w>h=new_split:down
+keybind = cmd+w>q=close_surface
+keybind = cmd+w>arrow_up=goto_split:up
+keybind = cmd+w>arrow_down=goto_split:down
+keybind = cmd+w>arrow_left=goto_split:left
+keybind = cmd+w>arrow_right=goto_split:right

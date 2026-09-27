@@ -5,6 +5,13 @@
 name = 'haskell'
 language-servers = ['haskell-language-server']
 indent = { tab-width = 4, unit = '    ' }
+
+# Racket
+[[language]]
+name = 'racket'
+language-servers = [ { name = 'racket', except-features = ['format'] } ]
+formatter = { command = 'raco', args = ['fmt'] }
+indent = { tab-width = 2, unit = '  ' }
 auto-format = true
 
 # Cabal

@@ -12,3 +12,7 @@
     helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
     useHttpPath = true
+[url "https://github.com/"]
+    insteadOf = gh:
+[url "https://github.com/lernywensi/"]
+    insteadOf = me:
